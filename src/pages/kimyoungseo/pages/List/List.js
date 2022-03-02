@@ -1,15 +1,15 @@
 import "./List.scss";
-import "../../styles/reset.css";
 import TopNav from "../Common/TopNav";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CommentList from "./CommentList";
+import "../../../../styles/reset.scss";
 
 function List() {
   const [commentList, setCommentList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/listData.json", {
+    fetch("http://localhost:3000/data/kimyoungseo/listData.json", {
       method: "GET",
     })
       .then((res) => res.json())

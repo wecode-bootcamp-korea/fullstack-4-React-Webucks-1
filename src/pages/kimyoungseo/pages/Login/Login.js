@@ -1,4 +1,5 @@
 import "./Login.scss";
+import "../../../../styles/reset.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -23,10 +24,45 @@ function Login() {
   };
   const [isActive, setIsActive] = useState(true);
   const [cursor, setCoursor] = useState("auto");
-  const isPassedLogin = () => {
-    return id.includes("@") && pw.length >= 5
+  const [idBoxColor, setidBoxColor] = useState("#e3e3e3");
+  const [pwBoxColor, setpwdBoxColor] = useState("#e3e3e3");
+
+  const isPassedLogin = () => (
+    CheckEmail(id) && checkPW(pw)
       ? (setIsActive(false), setCoursor("pointer"))
-      : (setIsActive(true), setCoursor("auto"));
+      : (setIsActive(true), setCoursor("auto")),
+    CheckEmail(id) ? setidBoxColor("green") : setidBoxColor("#e3e3e3"),
+    checkPW(pw) ? setpwdBoxColor("green") : setpwdBoxColor("#e3e3e3")
+  );
+
+  //이메일 체크
+  function CheckEmail(str) {
+    const reg_email =
+      /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    if (!reg_email.test(str)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  //비밀번호 체크
+  function checkPW(str) {
+    const reg_pw =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    if (!reg_pw.test(str)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  //누르면 비밀번호 보기
+  const [iClassName, setiClassName] = useState("fa-solid fa-eye-slash");
+  const [pwd, setPwd] = useState("password");
+
+  const eyeChange = () => {
+    return iClassName === "fa-solid fa-eye-slash" && pwd === "password"
+      ? (setiClassName("fa-solid fa-eye"), setPwd("text"))
+      : (setiClassName("fa-solid fa-eye-slash"), setPwd("password"));
   };
   return (
     <>
@@ -42,16 +78,18 @@ function Login() {
                 placeholder="전화번호, 사용자 이름 또는 이메일"
                 onChange={handleIdInput}
                 onKeyUp={isPassedLogin}
+                style={{ borderColor: idBoxColor }}
               />
               <input
                 className="inputBox"
                 id="pwInput"
-                type="password"
+                type={pwd}
                 placeholder="비밀번호"
                 onChange={handlePwInput}
                 onKeyUp={isPassedLogin}
+                style={{ borderColor: pwBoxColor }}
               />
-              <i className="fa-solid fa-eye-slash"></i>
+              <i className={iClassName} onClick={eyeChange}></i>
               <button
                 style={{ cursor: cursor }}
                 className="loginBtn"

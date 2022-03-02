@@ -16,7 +16,7 @@ function CommentList(props) {
     <>
       <li>
         <div className="hidden">
-          <Link to="detail">
+          <Link to="/detail-youngseo">
             <img src={props.img} alt={props.name} />
           </Link>
         </div>

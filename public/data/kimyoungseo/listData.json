@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "/images/kimyoungseo/jacob-bentzinger-nin2FDduuI0-unsplash.jpg",
+    "name": "나이트로 바닐라 크림"
+  },
+  {
+    "id": 2,
+    "imgUrl": "/images/kimyoungseo/amr-taha-2gkWIQW_V34-unsplash.jpg",
+    "name": "나이트로 콜드 브루"
+  },
+  {
+    "id": 3,
+    "imgUrl": "/images/kimyoungseo/andrew-valdivia-mMI5sdLFoHM-unsplash (2).jpg",
+    "name": "돌체 콜드 브루"
+  },
+  {
+    "id": 4,
+    "imgUrl": "/images/kimyoungseo/andrew-valdivia-mMI5sdLFoHM-unsplash.jpg",
+    "name": "바닐라 크림 콜드 브루"
+  },
+  {
+    "id": 5,
+    "imgUrl": "/images/kimyoungseo/crystal-y-lQ2eedSQDI8-unsplash (1).jpg",
+    "name": "벨벳 다크 모카 나이트로"
+  },
+  {
+    "id": 6,
+    "imgUrl": "images/kimyoungseo/tamara-schipchinskaya-yac7gVBIVrI-unsplash.jpg",
+    "name": "시그니처 더 블랙 콜드 브루"
+  },
+  {
+    "id": 7,
+    "imgUrl": "/images/kimyoungseo/tabitha-turner-F0Wd4djYvSA-unsplash.jpg",
+    "name": "제주 비자림 콜드 브루"
+  },
+
+  {
+    "id": 8,
+    "imgUrl": "/images/kimyoungseo/rizky-subagja-GKWB77IZe-U-unsplash.jpg",
+    "name": "콜드 브루"
+  },
+
+  {
+    "id": 9,
+    "imgUrl": "/images/kimyoungseo/matt-hoffman-0iYgMT7lH7E-unsplash.jpg",
+    "name": "콜드 브루 몰트"
+  },
+
+  {
+    "id": 10,
+    "imgUrl": "/images/kimyoungseo/jorik-blom-HP4VFH70LMc-unsplash.jpg",
+    "name": "콜드 브루 오트 라떼"
+  },
+  {
+    "id": 11,
+    "imgUrl": "/images/kimyoungseo/tamara-schipchinskaya-yac7gVBIVrI-unsplash.jpg",
+    "name": "오늘의 커피"
+  },
+  {
+    "id": 12,
+    "imgUrl": "/images/kimyoungseo/rohan-gupta-YkgMNsBZur0-unsplash.jpg",
+    "name": "아이스 커피"
+  }
+]

@@ -2,6 +2,8 @@ import { useState } from "react";
 import TopNav from "../Common/TopNav";
 import CommentDetail from "./CommentDetail";
 import "./Detail.scss";
+import "../../../../styles/reset.scss";
+
 let arrayKey = 0;
 function Detail() {
   const [inputText, setInputText] = useState({});
@@ -39,7 +41,7 @@ function Detail() {
     //key 값으로 구현 해야 하는데 모르겠음...
   };
   return (
-    <>
+    <div className="boxDetail">
       <div className="box">
         <div className="container">
           <TopNav />
@@ -56,7 +58,7 @@ function Detail() {
           <section className="mainPage">
             <div className="mainPageLeft">
               <img
-                src="/images/jacob-bentzinger-nin2FDduuI0-unsplash.jpg"
+                src="/images/kimyoungseo/jacob-bentzinger-nin2FDduuI0-unsplash.jpg"
                 alt="나이트로 바닐라 크림"
               />
             </div>
@@ -210,7 +212,7 @@ function Detail() {
           </tbody>
         </table>
       </footer>
-    </>
+    </div>
   );
 }
 
