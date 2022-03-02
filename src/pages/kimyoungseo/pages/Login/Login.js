@@ -15,12 +15,14 @@ function Login() {
 
   const handleIdInput = (e) => {
     setId(e.target.value);
+  };
+  const keyInput = (e) => {
     if (e.key === "Enter") {
       goToList();
     }
   };
-  const handlePwInput = (event) => {
-    setPw(event.target.value);
+  const handlePwInput = (e) => {
+    setPw(e.target.value);
   };
   const [isActive, setIsActive] = useState(true);
   const [cursor, setCoursor] = useState("auto");
@@ -76,6 +78,7 @@ function Login() {
                 type="id"
                 id="idInput"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
+                onKeyPress={keyInput}
                 onChange={handleIdInput}
                 onKeyUp={isPassedLogin}
                 style={{ borderColor: idBoxColor }}
@@ -85,6 +88,7 @@ function Login() {
                 id="pwInput"
                 type={pwd}
                 placeholder="비밀번호"
+                onKeyPress={keyInput}
                 onChange={handlePwInput}
                 onKeyUp={isPassedLogin}
                 style={{ borderColor: pwBoxColor }}
