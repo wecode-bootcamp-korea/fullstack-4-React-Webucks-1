@@ -1,0 +1,219 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+
+  .container {
+    width: 70%;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #f4f4f2;
+
+    .title {
+      font-family: "Dancing Script", cursive;
+      font-size: 20px;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 500px;
+      color: #b9b9b4;
+      list-style: none;
+    }
+  }
+
+  .mainText {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      padding: 20px 0 30px 0;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    ul {
+      display: flex;
+
+      li {
+        padding-top: 50px;
+        color: #bfbfbf;
+        font-size: 14px;
+        list-style: none;
+      }
+    }
+  }
+
+  .mainPage {
+    display: flex;
+    padding-bottom: 100px;
+
+    .mainPageLeft img {
+      width: 400px;
+    }
+  }
+
+  .mainPageRight {
+    padding-left: 50px;
+
+    .mainHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid black;
+    }
+
+    .mainText {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .subTitle {
+      font-size: 27px;
+      font-weight: 700;
+    }
+
+    .mainHeart {
+      color: #bfbfbf;
+
+      .fa-solid {
+        color: red;
+      }
+    }
+
+    .product_info {
+      border-bottom: 2px solid #efefef;
+      padding: 20px 0;
+    }
+    .product_info_head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 2px solid #efefef;
+    }
+
+    .product_info_content {
+      .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .content_left {
+        width: 50%;
+        padding-left: 0;
+        padding-right: 8px;
+        border-right: 2px dotted #efefef;
+        li {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+        }
+      }
+      .content_right {
+        width: 49%;
+        padding: 0;
+        li {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+        }
+      }
+    }
+  }
+
+  .product_factor {
+    width: 100%;
+    padding: 3px;
+    background-color: #efefef;
+    p {
+      padding: 15px;
+    }
+  }
+
+  .review {
+    .review_header {
+      padding-top: 30px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #efefef;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .review_content {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+    }
+
+    ul {
+      li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 0;
+
+        .id {
+          padding-right: 5px;
+          font-size: 18px;
+          font-weight: 800;
+        }
+        i {
+          padding: 5px;
+          font-size: 12px;
+        }
+        .fa-regular {
+          color: #bfbfbf;
+        }
+        .fa-solid.fa-heart {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .review_input {
+    padding-top: 10px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #efefef;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  }
+
+  footer {
+    width: 100%;
+    height: 400px;
+    background-color: #333333;
+
+    table {
+      width: 80%;
+      height: 300px;
+      margin: auto;
+      padding-top: 100px;
+      color: #d7d7d7;
+      text-align: left;
+      th {
+        padding: 80px 0px 20px 0px;
+      }
+    }
+  }
+}

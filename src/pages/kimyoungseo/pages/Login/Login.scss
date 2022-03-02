@@ -1,0 +1,68 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Total {
+  @include flex-center;
+  height: 100vh;
+  background-color: #eeefef;
+
+  .secTion {
+    @include flex-center;
+    flex-direction: column;
+    width: 500px;
+    height: 700px;
+    border: 3px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+
+  .mainTitle {
+    padding-bottom: 20px;
+    font-family: "Dancing Script", cursive;
+    font-size: 70px;
+  }
+
+  .inputArea {
+    position: relative;
+    height: 250px;
+    margin-bottom: 200px;
+
+    input {
+      @include flex-center;
+      width: 350px;
+      height: 50px;
+      padding-left: 5px;
+      margin: 20px;
+      border: 2px solid #e3e3e3;
+      border-radius: 5px;
+      background-color: #f7f7f7;
+      outline: none;
+    }
+    .fa-solid {
+      position: absolute;
+      top: 118px;
+      right: 30px;
+      cursor: pointer;
+    }
+    .loginBtn {
+      width: 350px;
+      height: 50px;
+      border-radius: 5px;
+      margin-left: 20px;
+      color: white;
+      background-color: #61aded;
+      border: 0px solid black;
+      a {
+        display: block;
+        text-decoration: none;
+        color: white;
+      }
+    }
+    .loginBtn:disabled {
+      opacity: 0.5;
+    }
+  }
+}

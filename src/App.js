@@ -1,13 +1,19 @@
-import { BrowserRouter, Routes, Router } from "react-router-dom";
-import Loginyoungseo from "./pages/kimyoungseo/Login/Login";
-import Mainyoungseo from "./pages/kimyoungseo/Main/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import Loginyoungseo from "./pages/kimyoungseo/pages/Login/Login";
+import Listyoungseo from "./pages/kimyoungseo/pages/List/List";
+import Detailyoungseo from "./pages/kimyoungseo/pages/Detail/Detail";
+import Main from "./pages/Main";
+import "./styles/reset.scss";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Router path="/login-youngseo" element={<Loginyoungseo />} />
-        <Router path="/main-youngseo" element={<Mainyoungseo />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/login-youngseo" element={<Loginyoungseo />} />
+        <Route path="/list-youngseo" element={<Listyoungseo />} />
+        <Route path="/detail-youngseo" element={<Detailyoungseo />} />
       </Routes>
     </BrowserRouter>
   );
