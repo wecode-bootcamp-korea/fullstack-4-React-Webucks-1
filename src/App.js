@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Router } from "react-router-dom";
+import Loginyoungseo from "./pages/kimyoungseo/Login/Login";
+import Mainyoungseo from "./pages/kimyoungseo/Main/Main";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Router path="/login-youngseo" element={<Loginyoungseo />} />
+        <Router path="/main-youngseo" element={<Mainyoungseo />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
