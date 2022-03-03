@@ -44,19 +44,11 @@ function List() {
     const [_brudList, setBrudList] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/data/seulhaewon/brudcoffeeList.json', {
-          method: 'GET'  
-        })              
-          .then(res => res.json())
-          .then(data => {
-              setBrudList(data);
-        });
-        fetch('http://localhost:3000/data/seulhaewon/coldbrewList.json', {
-            method: 'GET'  
-          })              
+        fetch('http://localhost:3000/data/seulhaewon/coffeeList.json', {method: 'GET'})              
             .then(res => res.json())
             .then(data => {
-                setColdbrewList(data);
+                setColdbrewList(data["coldbrew"]);
+                setBrudList(data["brudcoffee"]);
           });
     },[])
 
