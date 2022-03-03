@@ -26,6 +26,9 @@ function Detail() {
         Heart:coffee.heart,
         HeartColor:coffee.heartColor
     });
+    
+    (coffee.Heart==="FH") ? Heart.Heart=FH : Heart.Heart=FHS; 
+
     const HeartChange = event =>{
         setHearts({
             Heart : (Heart.Heart===FH) ? FHS : FH,
@@ -44,7 +47,10 @@ function Detail() {
     }
     const [reviewList, setReviewList] = useState([]);
     const nextId = useRef(1);
-    const addReviewList = event =>{
+    const makeReviewList = event =>{
+        if(review.id==="" || review.comment === ""){
+            return true;
+        }
         const Review = {
             key:nextId.current,
             id:review.id,
@@ -81,7 +87,7 @@ function Detail() {
                         <div id="heart"><FontAwesomeIcon icon={Heart.Heart} onClick={HeartChange} color={Heart.HeartColor}/></div>
                     </div>
                     <p className="eng_name">{coffee.engname}</p>
-                    <p className="intro">부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!</p>
+                    <p className="intro">{coffee.comment}</p>
                     <table>
                         <thead>
                             <tr>
@@ -116,7 +122,7 @@ function Detail() {
                     <div className="reviewContainer" onKeyUp={addReview}>
                         <input name="id" type="text" placeholder="아이디" className="review_id"/>
                         <input name="comment" type="text" placeholder="리뷰를 입력해 주세요" className="review"/>
-                        <button onClick={addReviewList}>등록</button>
+                        <button onClick={makeReviewList}>등록</button>
                     </div>
                     <div>
                         {reviewList.map((_review, index) =>(<ReviewBox review={_review} key={index} onRemove={onRemove} listHeartChange={listHeartChange}/>))}
