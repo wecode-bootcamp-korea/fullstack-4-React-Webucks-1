@@ -18,6 +18,7 @@ function Login() {
 
   const HandleIdInput = event =>{
     setId(event.target.value);
+    
   }
   const HandlePwdInput = event =>{
     setPwd(event.target.value);

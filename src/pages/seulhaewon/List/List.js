@@ -21,7 +21,7 @@ function CoffeeCard({coffee, listHeartChange}){
     return(
         <div className="coffee">
             <div className="imgBlock">
-                <Link to ={coffee.Link}>
+                <Link to={coffee.Link} state={{ coffee: coffee}}>
                     <img className="image" src={coffee.imageURL} alt={coffee.alt}/>
                 </Link>
             </div>
@@ -42,7 +42,6 @@ function HeartChange(prevObj, currentObj){
 function List() {
     const [_coldbrewList, setColdbrewList] = useState([]);
     const [_brudList, setBrudList] = useState([]);
-
     useEffect(() => {
         fetch('http://localhost:3000/data/seulhaewon/coffeeList.json', {method: 'GET'})              
             .then(res => res.json())

@@ -6,6 +6,7 @@ import { faHeart as FH} from '@fortawesome/free-regular-svg-icons';
 import { faHeart as FHS} from '@fortawesome/free-solid-svg-icons';
 import { faX} from '@fortawesome/free-solid-svg-icons';
 import { useState,useRef } from 'react';
+import { useLocation } from 'react-router-dom'
 
 const ReviewBox = ({review, onRemove, listHeartChange}) => {
     return(
@@ -18,37 +19,23 @@ const ReviewBox = ({review, onRemove, listHeartChange}) => {
         </div>
     );  
 }
-
 function Detail() {
-    const listHeartChange = (_review) =>{
-        setReviewList(reviewList.map((rv)=>{
-            if(rv.key === _review.key){
-                rv.heart = (_review.heart===FH) ? FHS : FH;
-                rv.heartColor = (_review.heartColor==="#CFCFCF") ? "red" : "#CFCFCF";
-            }
-            return rv;
-        }));
-    }
-
-    const onRemove = (key) =>{
-        setReviewList(reviewList.filter(review=>review.key !==key));
-    }
-
-    const [Hearts, setHearts] = useState({
-            Heart:FH,
-            HeartColor:"#CFCFCF"
+    const location = useLocation();
+    const {coffee} = location.state;
+    const [Heart, setHearts] = useState({
+        Heart:coffee.heart,
+        HeartColor:coffee.heartColor
     });
     const HeartChange = event =>{
         setHearts({
-            Heart : (Hearts.Heart===FH) ? FHS : FH,
-            HeartColor : (Hearts.HeartColor==="#CFCFCF") ? "red" : "#CFCFCF"
+            Heart : (Heart.Heart===FH) ? FHS : FH,
+            HeartColor : (Heart.HeartColor==="#CFCFCF") ? "red" : "#CFCFCF"
         });
     }
     const [review, setReview] = useState({
         id:"",
         comment:""
     });
-
     const addReview = event =>{
         setReview({
             ...review,
@@ -68,6 +55,18 @@ function Detail() {
         setReviewList(reviewList.concat(Review));
         nextId.current += 1;
     }
+    const listHeartChange = (_review) =>{
+        setReviewList(reviewList.map((rv)=>{
+            if(rv.key === _review.key){
+                rv.heart = (_review.heart===FH) ? FHS : FH;
+                rv.heartColor = (_review.heartColor==="#CFCFCF") ? "red" : "#CFCFCF";
+            }
+            return rv;
+        }));
+    }
+    const onRemove = (key) =>{
+        setReviewList(reviewList.filter(review=>review.key !==key));
+    }
     return (
     <div>
         <TopNav/>
@@ -78,10 +77,10 @@ function Detail() {
                 <div className="imgBox"><img src="/images/seulhaewon/coffee.jpg" alt="나이트로 바닐라 크림"/></div>
                 <div className="wrap2">
                     <div className="title">
-                        나이트로 바닐라크림
-                        <div id="heart"><FontAwesomeIcon icon={Hearts.Heart} onClick={HeartChange} color={Hearts.HeartColor}/></div>
+                        {coffee.name}
+                        <div id="heart"><FontAwesomeIcon icon={Heart.Heart} onClick={HeartChange} color={Heart.HeartColor}/></div>
                     </div>
-                    <p className="eng_name">Nitro Vanilla Cream</p>
+                    <p className="eng_name">{coffee.engname}</p>
                     <p className="intro">부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!</p>
                     <table>
                         <thead>
@@ -95,23 +94,23 @@ function Detail() {
                                 <td>1회 제공량</td>
                                 <td className="borderline">80</td>
                                 <td>나트륨 (mg)</td>
-                                <td>40</td>
+                                <td>{coffee.nutrition.Na}</td>
                             </tr>
                             <tr>
                                 <td>포화지방 (g)</td>
                                 <td className="borderline">2</td>
                                 <td>당류 (g)</td>
-                                <td>10</td>
+                                <td>{coffee.nutrition.sugar}</td>
                             </tr>
                             <tr>
                                 <td>단백질 (g)</td>
-                                <td className="borderline">1</td>
+                                <td className="borderline">{coffee.protein}</td>
                                 <td>카페인 (mg)</td>
-                                <td>232</td>
+                                <td>{coffee.nutrition.caffein}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <div className="allergy">알레르기 유발요인:우유</div>
+                    <div className="allergy">알레르기 유발요인:{coffee.arrergy}</div>
                 
                     <h4>리뷰</h4>
                     <div className="reviewContainer" onKeyUp={addReview}>
