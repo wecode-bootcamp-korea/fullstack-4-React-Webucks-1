@@ -13,6 +13,11 @@ body{
     padding-top: 100px;
     padding-bottom: 100px;
 }
+.webucks{
+    margin:30px;
+    font-size:80px;
+    font-family: 'Dancing Script', cursive;
+}
 
 input:focus{
     outline: none !important;
@@ -65,11 +70,6 @@ input{
     border:2px solid #C9E2F1;
     margin-bottom:160px;
     opacity:1;
-}
-
-h1{
-    font-size:60px;
-    font-family: 'Dancing Script', cursive;
 }
 
 .container a{

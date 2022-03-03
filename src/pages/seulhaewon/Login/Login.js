@@ -39,7 +39,7 @@ function Login() {
     <div>
         <section className="container">
             <div id="login_box">
-                <h1>webucks</h1>
+                <div className="webucks">webucks</div>
                 <input id="id" type="text" placeholder="전화번호,사용자 이름 또는 이메일" onChange={HandleIdInput}/>
                 <div className="pwdBox"><input id="pwd" type={pwdStatus.type} placeholder="비밀번호" onChange={HandlePwdInput}/>
                     <FontAwesomeIcon icon={pwdStatus.icon} className="fa-eye-slash" onClick={changeEye}/>

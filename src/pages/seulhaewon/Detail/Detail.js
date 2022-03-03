@@ -110,7 +110,7 @@ function Detail() {
                             </tr>
                         </tbody>
                     </table>
-                    <div className="allergy">알레르기 유발요인:{coffee.arrergy}</div>
+                    <div className="allergy">알레르기 유발요인:{coffee.arrergy.map((coffee)=>coffee + " ")}</div>
                 
                     <h4>리뷰</h4>
                     <div className="reviewContainer" onKeyUp={addReview}>
