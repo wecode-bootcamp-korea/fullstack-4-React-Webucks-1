@@ -1,0 +1,17 @@
+{
+  "id": 7,
+  "imgUrl": "/images/kimyoungseo/tabitha-turner-F0Wd4djYvSA-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "제주 비자림 콜드 브루",
+  "name": "Jeju Vijarim Cold Brew",
+  "nameContent": "[제주지역 한정음료] 제주 천년의 숲 비자림을 연상시키는 음료로 제주에서 유기농 말차로 만든 파우더와 Cold Brew를 활용한 음료.",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 340 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 8 },
+    { "id": 3, "name": "단백질 (g)", "percent": 10 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 140 },
+    { "id": 5, "name": "당류 (g)", "percent": 43 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 105 }
+  ],
+  "product_fator": "우유"
+}

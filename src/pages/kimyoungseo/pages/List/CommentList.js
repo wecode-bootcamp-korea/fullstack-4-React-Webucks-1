@@ -1,5 +1,5 @@
 import Detail from "../Detail/Detail";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./List.scss";
 
@@ -12,16 +12,21 @@ function CommentList(props) {
       ? setIClass("fa-solid fa-heart")
       : setIClass("fa-regular fa-heart");
   }
+
+  const navigte = useNavigate();
+
+  const goToDetail = () => {
+    navigte(`/list-youngseo/${props.name}`);
+  };
+
   return (
     <>
       <li>
         <div className="hidden">
-          <Link to="/detail-youngseo">
-            <img src={props.img} alt={props.name} />
-          </Link>
+          <img src={props.img} alt={props.name} onClick={goToDetail} />
         </div>
         <div className="coffeeName">
-          <Link to="detail">{props.name}</Link>
+          <div onClick={goToDetail}>{props.title}</div>
           <i className={iClass} onClick={changeButton}></i>
         </div>
       </li>

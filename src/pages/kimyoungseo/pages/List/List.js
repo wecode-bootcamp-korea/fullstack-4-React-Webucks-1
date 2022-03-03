@@ -9,7 +9,7 @@ function List() {
   const [commentList, setCommentList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/kimyoungseo/listData.json", {
+    fetch("/data/kimyoungseo/listData.json", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -37,6 +37,7 @@ function List() {
                     <CommentList
                       key={comment.id}
                       img={comment.imgUrl}
+                      title={comment.title}
                       name={comment.name}
                     />
                   );
@@ -59,6 +60,7 @@ function List() {
                     <CommentList
                       key={comment.id}
                       img={comment.imgUrl}
+                      title={comment.title}
                       name={comment.name}
                     />
                   );

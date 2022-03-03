@@ -1,0 +1,17 @@
+{
+  "id": 5,
+  "imgUrl": "/images/kimyoungseo/crystal-y-lQ2eedSQDI8-unsplash (1).jpg",
+  "title": "콜드 브루",
+  "titleName": "벨벳 다크 모카 나이트로",
+  "name": "Velvet Dark Mocha Night",
+  "nameContent": "다크 초콜릿 모카의 진한 바디감과 함께 헤이즐넛 향과 달콤한 카라멜 크림 폼으로 벨벳같은 부드러움까지 살린 리저브 나이트로 커피",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 150 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 6 },
+    { "id": 3, "name": "단백질 (g)", "percent": 2 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 15 },
+    { "id": 5, "name": "당류 (g)", "percent": 17 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 190 }
+  ],
+  "product_fator": "우유"
+}

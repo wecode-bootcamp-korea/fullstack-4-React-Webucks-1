@@ -60,9 +60,9 @@
         text-decoration: none;
         color: white;
       }
-    }
-    .loginBtn:disabled {
-      opacity: 0.5;
+      &:disabled {
+        opacity: 0.5;
+      }
     }
   }
 }

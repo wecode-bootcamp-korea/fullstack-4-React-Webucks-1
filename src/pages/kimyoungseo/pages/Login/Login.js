@@ -16,13 +16,14 @@ function Login() {
   const handleIdInput = (e) => {
     setId(e.target.value);
   };
+  const handlePwInput = (e) => {
+    setPw(e.target.value);
+  };
+  //엔터로 화면이동
   const keyInput = (e) => {
     if (e.key === "Enter") {
       goToList();
     }
-  };
-  const handlePwInput = (e) => {
-    setPw(e.target.value);
   };
   const [isActive, setIsActive] = useState(true);
   const [cursor, setCoursor] = useState("auto");

@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TopNav from "../Common/TopNav";
 import CommentDetail from "./CommentDetail";
 import "./Detail.scss";
 import "../../../../styles/reset.scss";
+import { useParams } from "react-router-dom";
+import Detaillist from "./Detaillist";
 
 let arrayKey = 0;
 function Detail() {
@@ -36,47 +38,61 @@ function Detail() {
   const parentsId = (e) => {
     //배열 비교 하면서 값이 다르면 삭제  [값이 같으면 다 삭제되는 오류 발생]
     // const value = e.target.parentNode.childNodes[1].innerText;
+    //key 값으로 구현
     const targetId = e.target.parentNode.id;
     setArray(array.filter((array) => array.id !== Number(targetId)));
-    //key 값으로 구현 해야 하는데 모르겠음...
   };
+  const params = useParams();
+  const [cofffeeDetail, setCoffeeDetail] = useState({
+    id: 0,
+    imgUrl: "",
+    title: "",
+    titleName: "",
+    name: "",
+    nameContent: "",
+    nutrition: [],
+    product_fator: "",
+  });
+
+  useEffect(() => {
+    fetch(`/data/kimyoungseo/${params.id}.json`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCoffeeDetail(data);
+      });
+  }, []);
   return (
     <div className="boxDetail">
       <div className="box">
         <div className="container">
           <TopNav />
           <section className="mainText">
-            <div className="title">콜드 브루</div>
+            <div className="title">{cofffeeDetail.title}</div>
             <ul className="link">
               <li>홈 ></li>
               <li>MENU ></li>
               <li>음료 ></li>
-              <li>에스프레소 ></li>
-              <li>화이트 초콜릿 모카</li>
+              <li>{cofffeeDetail.title} ></li>
+              <li>{cofffeeDetail.titleName}</li>
             </ul>
           </section>
           <section className="mainPage">
             <div className="mainPageLeft">
-              <img
-                src="/images/kimyoungseo/jacob-bentzinger-nin2FDduuI0-unsplash.jpg"
-                alt="나이트로 바닐라 크림"
-              />
+              <img src={cofffeeDetail.imgUrl} alt={cofffeeDetail.titleName} />
             </div>
             <div className="mainPageRight">
               <div className="mainHeader">
                 <div className="mainText">
-                  <div className="subTitle">화이트 초콜릿 모카</div>
-                  <div className="englishTitle">White Chocolate Mocha</div>
+                  <div className="subTitle">{cofffeeDetail.titleName}</div>
+                  <div className="englishTitle">{cofffeeDetail.name}</div>
                 </div>
                 <div className="mainHeart">
                   <i className={iClass} onClick={changeButton}></i>
                 </div>
               </div>
-              <p className="product_info">
-                달콤하고 부드러운 화이트 초콜릿 시럽과 에스프레소를 스팀 밀크와
-                섞어 휘핑크림으로 마무리한 음료로 달콤함과 강렬한 에스프레소가
-                부드럽게 어우러진 커피
-              </p>
+              <p className="product_info">{cofffeeDetail.nameContent}</p>
               <div className="product_info_head">
                 <p className="product_info_title">제품 영양 정보</p>
                 <p>Tall(톨) / 355ml(12 floz)</p>
@@ -84,36 +100,34 @@ function Detail() {
               <div className="product_info_content">
                 <div className="content">
                   <ul className="content_left">
-                    <li className="kcal">
-                      <div className="kcal_name">1회 제공량 (kcal)</div>
-                      <div className="kcal_ weight">345</div>
-                    </li>
-                    <li className="sat_Fat">
-                      <div className="Fat_name">포화지방 (g)</div>
-                      <div className="Fat_ weight">11</div>
-                    </li>
-                    <li calss="protein">
-                      <div className="protein_name">단백질 (g)</div>
-                      <div className="protein_weight">11</div>
-                    </li>
+                    {cofffeeDetail.nutrition.map((comment) => {
+                      if (comment.id < 4) {
+                        return (
+                          <Detaillist
+                            key={comment.id}
+                            name={comment.name}
+                            percent={comment.percent}
+                          />
+                        );
+                      }
+                    })}
                   </ul>
                   <ul className="content_right">
-                    <li className="sodium">
-                      <div className="sodium_name">나트륨 (mg)</div>
-                      <div className="sodium_weight">40</div>
-                    </li>
-                    <li className="sugrs">
-                      <div className="sugrs_name">당류 (g)</div>
-                      <div className="sugrs_weight">10</div>
-                    </li>
-                    <li className="caffeine">
-                      <div className="caffeine_name">카페인 (mg)</div>
-                      <div className="caffeine_weight">232</div>
-                    </li>
+                    {cofffeeDetail.nutrition.map((comment) => {
+                      if (comment.id > 3) {
+                        return (
+                          <Detaillist
+                            key={comment.id}
+                            name={comment.name}
+                            percent={comment.percent}
+                          />
+                        );
+                      }
+                    })}
                   </ul>
                 </div>
                 <div className="product_factor">
-                  <p>알레르기 유발 요인 : 우유</p>
+                  <p>알레르기 유발 요인 : {cofffeeDetail.product_fator}</p>
                 </div>
                 <div className="review">
                   <div className="review_header">리뷰</div>
@@ -127,6 +141,7 @@ function Detail() {
                     {array.map((comment) => {
                       return (
                         <CommentDetail
+                          key={comment.id}
                           name={comment.item}
                           id={comment.id}
                           parentsId={parentsId}

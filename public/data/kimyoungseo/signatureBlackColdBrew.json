@@ -1,0 +1,17 @@
+{
+  "id": 6,
+  "imgUrl": "/images/kimyoungseo/tamara-schipchinskaya-yac7gVBIVrI-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "시그니처 더 블랙 콜드 브루",
+  "name": "Signature Black Cold Brew",
+  "nameContent": "콜드 브루 전용 원두를 차가운 물로 14시간 동안 추출하여 부드럽고 진한 풍미의 콜드브루를 딜리버리로 원하는 곳에서 편하게 즐겨보세요 (전용 리유저블 보틀 /500ml)",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 25 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 0 },
+    { "id": 3, "name": "단백질 (g)", "percent": 0 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 50 },
+    { "id": 5, "name": "당류 (g)", "percent": 0 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 680 }
+  ],
+  "product_fator": "우유"
+}

@@ -12,8 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login-youngseo" element={<Loginyoungseo />} />
-        <Route path="/list-youngseo" element={<Listyoungseo />} />
-        <Route path="/detail-youngseo" element={<Detailyoungseo />} />
+        <Route path="/list-youngseo/" element={<Listyoungseo />} />
+        <Route path="/list-youngseo/:id" element={<Detailyoungseo />} />
       </Routes>
     </BrowserRouter>
   );

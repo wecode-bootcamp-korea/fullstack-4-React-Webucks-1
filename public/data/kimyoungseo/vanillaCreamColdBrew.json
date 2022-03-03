@@ -1,0 +1,17 @@
+{
+  "id": 4,
+  "imgUrl": "/images/kimyoungseo/andrew-valdivia-mMI5sdLFoHM-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "바닐라 크림 콜드 브루",
+  "name": "Vanilla Cream Cold Brew",
+  "nameContent": "콜드 브루에 더해진 바닐라 크림으로 깔끔하면서 달콤한 콜드 브루를 새롭게 즐길 수 있는 음료입니다.",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 125 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 6 },
+    { "id": 3, "name": "단백질 (g)", "percent": 3 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 58 },
+    { "id": 5, "name": "당류 (g)", "percent": 11 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 150 }
+  ],
+  "product_fator": "우유"
+}
