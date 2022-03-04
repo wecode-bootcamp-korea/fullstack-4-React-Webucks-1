@@ -19,12 +19,6 @@ body{
     font-family: 'Dancing Script', cursive;
 }
 
-input:focus{
-    outline: none !important;
-    border-color: red;
-    box-shadow: 0 0 10px #719ECE;
-}
-
 #login_box{
     width:400px;
     border:2px solid #E0E0E0;
@@ -89,4 +83,33 @@ input{
     position:absolute;
     right:10px;
     bottom:50%;
+}
+.pwdBorderDefault{
+    //border: 2px solid red;
+}
+.pwdBorderGreen{
+    border: 2px solid green;
+}
+.pwdBorderDefault:focus {
+    outline: 1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+.pwdBorderGreen:focus {
+    outline: 1px solid green;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.idBorderDefault{
+    //border: 2px solid red;
+}
+.idBorderGreen{
+    border: 2px solid green;
+}
+.idBorderDefault:focus {
+    outline: 1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+.idBorderGreen:focus {
+    outline: 1px solid green;
+    box-shadow: 0 0 10px #719ECE;
 }
