@@ -110,7 +110,7 @@ function Detail() {
                             </tr>
                             <tr>
                                 <td>단백질 (g)</td>
-                                <td className="borderline">{coffee.protein}</td>
+                                <td className="borderline">{coffee.nutrition.protein}</td>
                                 <td>카페인 (mg)</td>
                                 <td>{coffee.nutrition.caffein}</td>
                             </tr>
