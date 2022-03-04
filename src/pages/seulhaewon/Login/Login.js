@@ -57,7 +57,7 @@ function Login() {
                 </div>
                 <button className={ButtonChange("activeBtn","inactiveBtn")} 
                         onClick={goToMain}
-                        disabled={ButtonChange(false,true)}>11
+                        disabled={ButtonChange(false,true)}>
                         로그인
                 </button>
                 <Link to ={"#"}>비밀번호를 잊으셨나요?</Link>
