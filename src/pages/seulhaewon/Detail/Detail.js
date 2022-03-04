@@ -80,7 +80,7 @@ function Detail() {
         <section> 
             <div className="container1">
                 <div className="path">홈>MENU>음료>콜드브루>나이트로 바닐라크림</div>
-                <div className="imgBox"><img src="/images/seulhaewon/coffee.jpg" alt="나이트로 바닐라 크림"/></div>
+                <div className="imgBox"><img src={coffee.imageURL} alt="나이트로 바닐라 크림"/></div>
                 <div className="wrap2">
                     <div className="title">
                         {coffee.name}
