@@ -1,24 +1,12 @@
-
 import './Detail.scss';
 import TopNav from '../TopNav';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as FH} from '@fortawesome/free-regular-svg-icons';
 import { faHeart as FHS} from '@fortawesome/free-solid-svg-icons';
-import { faX} from '@fortawesome/free-solid-svg-icons';
-import { useState,useRef } from 'react';
+import { useState} from 'react';
 import { useLocation } from 'react-router-dom'
+import Review from '../review/review'
 
-const ReviewBox = ({review, onRemove, listHeartChange}) => {
-    return(
-        <div className="reviewBox">
-            <div><b>{review.id}</b>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}</div>
-            <div>
-                <FontAwesomeIcon icon={review.heart} onClick={()=>listHeartChange(review)} color={review.heartColor}/>
-                <FontAwesomeIcon icon={faX} onClick={()=>{onRemove(review.key)}}/>.
-            </div>
-        </div>
-    );  
-}
 function Detail() {
     const location = useLocation();
     const {coffee} = location.state;
@@ -26,52 +14,13 @@ function Detail() {
         Heart:coffee.heart,
         HeartColor:coffee.heartColor
     });
-    
-    (coffee.Heart==="FH") ? Heart.Heart=FH : Heart.Heart=FHS; 
 
+    (coffee.Heart==="FH") ? Heart.Heart=FH : Heart.Heart=FHS; 
     const HeartChange = event =>{
         setHearts({
             Heart : (Heart.Heart===FH) ? FHS : FH,
             HeartColor : (Heart.HeartColor==="#CFCFCF") ? "red" : "#CFCFCF"
         });
-    }
-    const [review, setReview] = useState({
-        id:"",
-        comment:""
-    });
-    const addReview = event =>{
-        setReview({
-            ...review,
-            [event.target.name]:event.target.value     //{event.target.name : event.target.value}
-        });
-    }
-    const [reviewList, setReviewList] = useState([]);
-    const nextId = useRef(1);
-    const makeReviewList = event =>{
-        if(review.id==="" || review.comment === ""){
-            return true;
-        }
-        const Review = {
-            key:nextId.current,
-            id:review.id,
-            comment:review.comment,
-            heart:FH,
-            heartColor:"#CFCFCF"
-        }
-        setReviewList(reviewList.concat(Review));
-        nextId.current += 1;
-    }
-    const listHeartChange = (_review) =>{
-        setReviewList(reviewList.map((rv)=>{
-            if(rv.key === _review.key){
-                rv.heart = (_review.heart===FH) ? FHS : FH;
-                rv.heartColor = (_review.heartColor==="#CFCFCF") ? "red" : "#CFCFCF";
-            }
-            return rv;
-        }));
-    }
-    const onRemove = (key) =>{
-        setReviewList(reviewList.filter(review=>review.key !==key));
     }
     return (
     <div>
@@ -119,14 +68,7 @@ function Detail() {
                     <div className="allergy">알레르기 유발요인:{coffee.arrergy.map((coffee)=>coffee + " ")}</div>
                 
                     <h4>리뷰</h4>
-                    <div className="reviewContainer" onKeyUp={addReview}>
-                        <input name="id" type="text" placeholder="아이디" className="review_id"/>
-                        <input name="comment" type="text" placeholder="리뷰를 입력해 주세요" className="review"/>
-                        <button onClick={makeReviewList}>등록</button>
-                    </div>
-                    <div>
-                        {reviewList.map((_review, index) =>(<ReviewBox review={_review} key={index} onRemove={onRemove} listHeartChange={listHeartChange}/>))}
-                    </div>
+                    <Review/>
                 </div>
             </div>
         </section>

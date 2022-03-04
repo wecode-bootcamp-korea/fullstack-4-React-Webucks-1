@@ -34,7 +34,10 @@ function Login() {
       return false;
   }
   const goToMain = () => {
-    navigate("/list-haewon");
+    (inputid.match(idReg) && inputPwd.match(pwdReg)) ? navigate("/list-haewon") : goToDefault();
+  }
+  const goToDefault = () => {
+    return true;
   }
   const changeEye = ()=>{
     setPwdStatus({
@@ -45,7 +48,7 @@ function Login() {
   return (
     <div>
         <section className="container">
-            <div id="login_box">
+            <div id="login_box" onKeyPress={(event)=>{(event.key === "Enter") ? goToMain() : goToDefault()}}>
                 <div className="webucks">webucks</div>
                 <input id="id" className={BorderChange("id","idBorderGreen","idBorderDefault")} type="text" placeholder="전화번호,사용자 이름 또는 이메일" onChange={HandleIdInput}/>
                 <div className="pwdBox">
@@ -54,7 +57,7 @@ function Login() {
                 </div>
                 <button className={ButtonChange("activeBtn","inactiveBtn")} 
                         onClick={goToMain}
-                        disabled={ButtonChange(false,true)}>
+                        disabled={ButtonChange(false,true)}>11
                         로그인
                 </button>
                 <Link to ={"#"}>비밀번호를 잊으셨나요?</Link>
