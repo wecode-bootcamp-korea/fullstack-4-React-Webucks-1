@@ -12,7 +12,10 @@ function Login() {
 
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
-
+  const [isActive, setIsActive] = useState(true);
+  const [cursor, setCoursor] = useState("auto");
+  const [idBoxColor, setidBoxColor] = useState("#e3e3e3");
+  const [pwBoxColor, setpwdBoxColor] = useState("#e3e3e3");
   const handleIdInput = (e) => {
     setId(e.target.value);
   };
@@ -21,14 +24,10 @@ function Login() {
   };
   //엔터로 화면이동
   const keyInput = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && isActive === false) {
       goToList();
     }
   };
-  const [isActive, setIsActive] = useState(true);
-  const [cursor, setCoursor] = useState("auto");
-  const [idBoxColor, setidBoxColor] = useState("#e3e3e3");
-  const [pwBoxColor, setpwdBoxColor] = useState("#e3e3e3");
 
   const isPassedLogin = () => (
     CheckEmail(id) && checkPW(pw)
