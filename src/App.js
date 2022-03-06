@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
-import Loginyoungseo from "./pages/kimyoungseo/pages/Login/Login";
-import Listyoungseo from "./pages/kimyoungseo/pages/List/List";
-import Detailyoungseo from "./pages/kimyoungseo/pages/Detail/Detail";
-import Main from "./pages/Main";
-import "./styles/reset.scss";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import Loginyoungseo from './pages/kimyoungseo/pages/Login/Login';
+import Listyoungseo from './pages/kimyoungseo/pages/List/List';
+import Detailyoungseo from './pages/kimyoungseo/pages/Detail/Detail';
+import Main from './pages/Main';
+import './styles/reset.scss';
 
 function App() {
   return (

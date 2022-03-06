@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import TopNav from "../Common/TopNav";
-import CommentDetail from "./CommentDetail";
-import "./Detail.scss";
-import "../../../../styles/reset.scss";
-import { useParams } from "react-router-dom";
-import Detaillist from "./Detaillist";
+import { useEffect, useState } from 'react';
+import TopNav from '../Common/TopNav';
+import CommentDetail from './CommentDetail';
+import './Detail.scss';
+import '../../../../styles/reset.scss';
+import { useParams } from 'react-router-dom';
+import Detaillist from './Detaillist';
 
 let arrayKey = 0;
 function Detail() {
   const [inputText, setInputText] = useState({});
   const [array, setArray] = useState([]);
   //배열에 넣어주기
-  const addComment = (item) => {
+  const addComment = item => {
     const items = {
       id: arrayKey,
       item: item,
@@ -20,46 +20,47 @@ function Detail() {
     setArray(array.concat([items]));
   };
   //엔터 누르면 댓글
-  const pressEnter = (e) => {
-    if (e.key === "Enter") {
+  const pressEnter = e => {
+    if (e.key === 'Enter') {
       setInputText(e.target.value);
       addComment(e.target.value);
-      e.target.value = "";
+      e.target.value = '';
     }
   };
   //detail 상단 하트 클릭시 색 변환
-  const [iClass, setIClass] = useState("fa-regular fa-heart");
+  const [iClass, setIClass] = useState('fa-regular fa-heart');
   const changeButton = () => {
-    iClass === "fa-regular fa-heart"
-      ? setIClass("fa-solid fa-heart")
-      : setIClass("fa-regular fa-heart");
+    iClass === 'fa-regular fa-heart'
+      ? setIClass('fa-solid fa-heart')
+      : setIClass('fa-regular fa-heart');
   };
   //댓글 삭제
-  const parentsId = (e) => {
+  const parentsId = e => {
     //배열 비교 하면서 값이 다르면 삭제  [값이 같으면 다 삭제되는 오류 발생]
     // const value = e.target.parentNode.childNodes[1].innerText;
     //key 값으로 구현
     const targetId = e.target.parentNode.id;
-    setArray(array.filter((array) => array.id !== Number(targetId)));
+    setArray(array.filter(array => array.id !== Number(targetId)));
   };
+  //디테일 페이지 데이터 바꾸기
   const params = useParams();
   const [cofffeeDetail, setCoffeeDetail] = useState({
     id: 0,
-    imgUrl: "",
-    title: "",
-    titleName: "",
-    name: "",
-    nameContent: "",
+    imgUrl: '',
+    title: '',
+    titleName: '',
+    name: '',
+    nameContent: '',
     nutrition: [],
-    product_fator: "",
+    product_fator: '',
   });
 
   useEffect(() => {
     fetch(`/data/kimyoungseo/${params.id}.json`, {
-      method: "GET",
+      method: 'GET',
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setCoffeeDetail(data);
       });
   }, []);
@@ -100,7 +101,7 @@ function Detail() {
               <div className="product_info_content">
                 <div className="content">
                   <ul className="content_left">
-                    {cofffeeDetail.nutrition.map((comment) => {
+                    {cofffeeDetail.nutrition.map(comment => {
                       if (comment.id < 4) {
                         return (
                           <Detaillist
@@ -113,7 +114,7 @@ function Detail() {
                     })}
                   </ul>
                   <ul className="content_right">
-                    {cofffeeDetail.nutrition.map((comment) => {
+                    {cofffeeDetail.nutrition.map(comment => {
                       if (comment.id > 3) {
                         return (
                           <Detaillist
@@ -138,7 +139,7 @@ function Detail() {
                       <i className="fa-regular fa-heart"></i>
                       <i className="fa-solid fa-trash-can"></i>
                     </li>
-                    {array.map((comment) => {
+                    {array.map(comment => {
                       return (
                         <CommentDetail
                           key={comment.id}
