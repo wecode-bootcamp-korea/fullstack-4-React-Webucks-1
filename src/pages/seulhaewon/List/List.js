@@ -1,11 +1,11 @@
-
 import './List.scss';
 import TopNav from '../TopNav';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as FH} from '@fortawesome/free-regular-svg-icons';
 import { faHeart as FHS} from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
+import React from 'react';
 
 function Label(props){
     return(
@@ -16,8 +16,18 @@ function Label(props){
         </div>
     );
 }
-function CoffeeCard({coffee, listHeartChange}){
-    (coffee.heart==="FH") ? coffee.heart=FH : coffee.heart=FHS;
+function CoffeeCard({coffee}){
+    const [Heart, setHearts] = useState({
+        Heart:coffee.heart,
+        HeartColor:coffee.heartColor
+    });
+    (coffee.Heart==="FH") ? Heart.Heart=FH : Heart.Heart=FHS; 
+    const HeartChange = () =>{
+        setHearts({
+            Heart : (Heart.Heart===FH) ? FHS : FH,
+            HeartColor : (Heart.HeartColor==="#CFCFCF") ? "red" : "#CFCFCF"
+        });
+    }
     return(
         <div className="coffee">
             <div className="imgBlock">
@@ -27,17 +37,10 @@ function CoffeeCard({coffee, listHeartChange}){
             </div>
             <div className="coffeeName">
                 {coffee.name}
-                <FontAwesomeIcon icon={coffee.heart} onClick={()=>{listHeartChange(coffee)}} color={coffee.heartColor}/>
+                <FontAwesomeIcon icon={Heart.Heart} onClick={()=>{HeartChange(coffee)}} color={Heart.HeartColor}/>
             </div>
         </div>
     );
-}
-function HeartChange(prevObj, currentObj){
-    if(prevObj.key === currentObj.key){
-        prevObj.heart = (currentObj.heart===FH) ? FHS : FH;
-        prevObj.heartColor = (currentObj.heartColor==="#CFCFCF") ? "red" : "#CFCFCF";
-    }
-    return prevObj;
 }
 function List() {
     const [_coldbrewList, setColdbrewList] = useState([]);
@@ -51,27 +54,19 @@ function List() {
           });
     },[])
 
-    const listHeartChange = (currentObj, category) =>{
-        if(category === "coldbrew"){
-            setColdbrewList(_coldbrewList.map((_coffee)=>HeartChange(_coffee,currentObj)));
-        }
-        else if(category === "brud"){
-            setBrudList(_brudList.map((_coffee)=>HeartChange(_coffee,currentObj)));
-        }
-    }
     return (
     <div>
         <TopNav/>
         <section>
             <Label name="콜드 브루 커피"/>
             <div className="wrap">
-                {_coldbrewList.map((coffee,index)=>(<CoffeeCard coffee={coffee} key={index} listHeartChange={()=>{listHeartChange(coffee,"coldbrew")}}/>))}
+                {_coldbrewList.map((coffee,index)=>(<CoffeeCard coffee={coffee} key={index}/>))}
             </div>
         </section>
         <section>
             <Label name="브루드 커피"/>
             <div className="wrap">
-                {_brudList.map((coffee,index)=>(<CoffeeCard coffee={coffee} key={index} listHeartChange={()=>{listHeartChange(coffee,"brud")}}/>))}
+                {_brudList.map((coffee,index)=>(<CoffeeCard coffee={coffee} key={index}/>))}
                 <div className='coffee'></div>
                 <div className='coffee'></div>
             </div>

@@ -6,6 +6,7 @@ import { faHeart as FHS} from '@fortawesome/free-solid-svg-icons';
 import { useState} from 'react';
 import { useLocation } from 'react-router-dom'
 import Review from '../review/review'
+import React from 'react';
 
 function Detail() {
     const location = useLocation();
@@ -120,4 +121,4 @@ function Footer(){
     );
 }
 
-export default Detail;
+export default React.memo(Detail);
