@@ -46,7 +46,7 @@ function Login() {
     });
   }
   return (
-    <div>
+    <div className="login_shw">
         <section className="container">
             <div id="login_box" onKeyPress={(event)=>{(event.key === "Enter") ? goToMain() : goToDefault()}}>
                 <div className="webucks">webucks</div>

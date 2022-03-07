@@ -38,7 +38,7 @@ function Review(){
         nextId.current += 1;
     }
     return(
-        <div>
+        <div className="review_shw">
             <div className="reviewContainer" onKeyUp={addReview}>
                 <input name="id" type="text" placeholder="아이디" className="review_id"/>
                 <input name="comment" type="text" placeholder="리뷰를 입력해 주세요" className="review"/>
