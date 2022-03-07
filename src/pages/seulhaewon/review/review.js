@@ -90,8 +90,7 @@ const ReviewBox = React.memo(function ReviewBox({
   return (
     <div className="reviewBox">
       <div>
-        <b>{review.id}</b>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}====
-        {review.key}
+        <b>{review.id}</b>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}
       </div>
       <div>
         <FontAwesomeIcon

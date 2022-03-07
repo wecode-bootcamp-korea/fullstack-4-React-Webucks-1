@@ -90,7 +90,7 @@ function Login() {
           >
             로그인
           </button>
-          <Link to={'#'}>비밀번호를 잊으셨나요?</Link>
+          <Link to>비밀번호를 잊으셨나요?</Link>
         </div>
       </section>
     </div>
