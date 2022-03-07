@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './List.css';
+import './List.scss';
 
 function List() {
     const [productList, setProductList] = useState(); 
