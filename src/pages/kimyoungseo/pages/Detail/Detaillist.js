@@ -1,5 +1,5 @@
-import "./Detail.scss";
-import { useState } from "react";
+import './Detail.scss';
+import { useState } from 'react';
 
 function Detaillist(props) {
   return (
