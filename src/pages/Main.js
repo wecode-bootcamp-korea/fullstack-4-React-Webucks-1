@@ -11,7 +11,7 @@ function Main() {
         <Link to="login-haewon">
           <div className="firstListName">Fullstack 4기 설혜원</div>
         </Link>
-        <Link to="login-sonseongho">
+        <Link to="login-seonghoson">
           <div className="firstListName">Fullstack 4기 손성호</div>
         </Link>
         <Link to="login-euitaek">
