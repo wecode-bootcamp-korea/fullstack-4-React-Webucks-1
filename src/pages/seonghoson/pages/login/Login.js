@@ -115,7 +115,7 @@ function Login() {
           <button
             ref={loginBtnRef}
             id="login_button"
-            onClick={() => loginBtnClick}
+            onClick={() => loginBtnClick()}
           >
             로그인
           </button>
