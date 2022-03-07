@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "imgUrl": "/images/kimyoungseo/jacob-bentzinger-nin2FDduuI0-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "나이트로 바닐라 크림",
+  "name": "Nightro Vanilla Cream",
+  "nameContent": "드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 80 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 2 },
+    { "id": 3, "name": "단백질 (g)", "percent": 1 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 40 },
+    { "id": 5, "name": "당류 (g)", "percent": 10 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 232 }
+  ],
+  "product_fator": "우유"
+}

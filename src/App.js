@@ -24,12 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login-youngseo" element={<Loginyoungseo />} />
-        <Route path="/list-youngseo" element={<Listyoungseo />} />
-        <Route path="/detail-youngseo" element={<Detailyoungseo />} />
+        <Route path="/list-youngseo/" element={<Listyoungseo />} />
+        <Route path="/list-youngseo/:id" element={<Detailyoungseo />} />
         <Route path="/login-euitaek" element={<Logineuitaek />} />
         <Route path="/list-euitaek" element={<Listeuitaek />} />
         <Route path="/detail-euitaek" element={<Detaileuitaek />} />
-
         <Route path="/login-haewon" element={<Loginhaewon />} />
         <Route path="/list-haewon" element={<Listhaewon />} />
         <Route path="/detail-haewon" element={<Detailhaewon />} />

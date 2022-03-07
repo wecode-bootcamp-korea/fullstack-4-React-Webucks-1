@@ -1,0 +1,17 @@
+{
+  "id": 9,
+  "imgUrl": "/images/kimyoungseo/matt-hoffman-0iYgMT7lH7E-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "콜드 브루 몰트",
+  "name": "Cold Brew Malt",
+  "nameContent": "[리저브 전용음료] 리저브 콜드 브루, 바닐라 아이스크림, 몰트가 블렌딩된 리저브만의 쉐이크",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 505 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 20 },
+    { "id": 3, "name": "단백질 (g)", "percent": 7 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 150 },
+    { "id": 5, "name": "당류 (g)", "percent": 41 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 190 }
+  ],
+  "product_fator": "대두/우유"
+}

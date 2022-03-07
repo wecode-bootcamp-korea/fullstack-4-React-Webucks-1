@@ -1,6 +1,6 @@
 import "./Detail.scss";
 import { useState } from "react";
-
+//use location useEffect
 function CommetDetail(props) {
   //하트 색
   const [iClass, setIClass] = useState("fa-regular fa-heart");
@@ -10,7 +10,7 @@ function CommetDetail(props) {
       : setIClass("fa-regular fa-heart");
   };
   return (
-    <li id={props.id} className="review_list" key={props}>
+    <li id={props.id} className="review_list">
       <div className="id">coffee_lover</div>
       <div className="review">{props.name}</div>
       <i className={iClass} onClick={changeButton}></i>
