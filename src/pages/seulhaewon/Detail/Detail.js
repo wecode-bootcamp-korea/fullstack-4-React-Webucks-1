@@ -24,7 +24,7 @@ function Detail() {
         });
     }
     return (
-    <div>
+    <div className="detail_shw">
         <TopNav/>
         <h2>&nbsp;&nbsp;콜드브루</h2>
         <section> 

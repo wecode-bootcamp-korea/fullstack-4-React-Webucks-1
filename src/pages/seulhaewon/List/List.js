@@ -55,7 +55,7 @@ function List() {
     },[])
 
     return (
-    <div>
+    <div className="list_shw">
         <TopNav/>
         <section>
             <Label name="콜드 브루 커피"/>
