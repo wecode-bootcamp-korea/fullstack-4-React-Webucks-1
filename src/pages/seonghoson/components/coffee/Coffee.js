@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
-import "./Coffee.scss";
+import './Coffee.scss';
 
-let likeData = JSON.parse(localStorage.getItem("likes"));
+let likeData = JSON.parse(localStorage.getItem('likes'));
 
 function Coffee(props) {
   const { item } = props;
@@ -13,16 +13,16 @@ function Coffee(props) {
   const [isLike, setIsLike] = useState(likeData.includes(item.id));
 
   function heartBtnClick(bool) {
-    let likeData = JSON.parse(localStorage.getItem("likes"));
+    let likeData = JSON.parse(localStorage.getItem('likes'));
     if (likeData.includes(item.id)) {
-      likeData = likeData.filter((id) => {
+      likeData = likeData.filter(id => {
         if (id !== item.id) return id;
         else return null;
       });
     } else {
       likeData.push(item.id);
     }
-    localStorage.setItem("likes", JSON.stringify(likeData));
+    localStorage.setItem('likes', JSON.stringify(likeData));
     setIsLike(bool);
   }
 

@@ -38,6 +38,8 @@
     align-items: center;
     overflow: hidden;
     cursor: pointer;
+    transition: 1s;
+
     & img {
       width: 271px;
       height: 282px;
@@ -45,7 +47,6 @@
       &:hover {
         width: 298px;
         height: 311px;
-        transition: 1s;
       }
     }
   }
