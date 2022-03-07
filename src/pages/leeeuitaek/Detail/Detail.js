@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import './Detail.css';
+import './Detail.scss';
 import DetailReview from './DetailReview';
 
 function Detail() {
