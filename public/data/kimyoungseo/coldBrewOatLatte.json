@@ -1,0 +1,17 @@
+{
+  "id": 10,
+  "imgUrl": "/images/kimyoungseo/jorik-blom-HP4VFH70LMc-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "콜드 브루 오트 라떼",
+  "name": "Cold Brew Oat Latte",
+  "nameContent": "콜드 브루의 풍미와 깔끔한 오트 밀크가 어우러진 달콤 고소한 라떼. 식물성 밀크를 사용해 모든 고객이 부담없이 즐길 수 있는 콜드 브루 음료",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 105 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 0.3 },
+    { "id": 3, "name": "단백질 (g)", "percent": 1 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 95 },
+    { "id": 5, "name": "당류 (g)", "percent": 11 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 65 }
+  ],
+  "product_fator": "우유"
+}

@@ -1,0 +1,17 @@
+{
+  "id": 8,
+  "imgUrl": "/images/kimyoungseo/rizky-subagja-GKWB77IZe-U-unsplash.jpg",
+  "title": "콜드 브루",
+  "titleName": "콜드 브루",
+  "name": "Cold Brew",
+  "nameContent": "스타벅스 바리스타의 정성으로 탄생한 콜드 브루! 콜드 브루 전용 원두를 차가운 물로 14시간 동안 추출하여 한정된 양만 제공됩니다. 깊은 풍미의 새로운 커피 경험을 즐겨보세요.",
+  "nutrition": [
+    { "id": 1, "name": "1회 제공량 (kcal)", "percent": 5 },
+    { "id": 2, "name": "포화지방 (g)", "percent": 0 },
+    { "id": 3, "name": "단백질 (g)", "percent": 0 },
+    { "id": 4, "name": "나트륨 (mg)", "percent": 11 },
+    { "id": 5, "name": "당류 (g)", "percent": 0 },
+    { "id": 6, "name": "카페인 (mg)", "percent": 150 }
+  ],
+  "product_fator": "우유"
+}
