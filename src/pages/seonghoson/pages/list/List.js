@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import Coffee from "../../components/coffee/Coffee";
 import Header from "../../components/header/Header";
 
@@ -9,6 +10,7 @@ if (!localStorage.getItem("likes")) {
 }
 
 function List() {
+  const location = useLocation();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -63,6 +65,9 @@ function List() {
                 src="images/seonghoson/icon_loading_coffee.gif"
               />
               <h2>WeBucks</h2>
+              {location.state?.username && (
+                <span>{location.state.username} 님 반가워요</span>
+              )}
             </article>
           </section>
         )}

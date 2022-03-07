@@ -13,7 +13,7 @@ function Header() {
     <header className="header_main">
       <div
         className="header_logo_wrapper"
-        onClick={() => navigateClick("/list")}
+        onClick={() => navigateClick("/list-seonghoson")}
       >
         <h1>We bucks</h1>
       </div>
@@ -21,7 +21,10 @@ function Header() {
         <span>COFFEE</span>
         <span>MENU</span>
         <span>STORE</span>
-        <span id="logout_button" onClick={() => navigateClick("/")}>
+        <span
+          id="logout_button"
+          onClick={() => navigateClick("/login-seonghoson")}
+        >
           LOGOUT
         </span>
       </div>
