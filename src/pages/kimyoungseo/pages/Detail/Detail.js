@@ -72,10 +72,10 @@ function Detail() {
           <section className="mainText">
             <div className="title">{cofffeeDetail.title}</div>
             <ul className="link">
-              <li>홈 ></li>
-              <li>MENU ></li>
-              <li>음료 ></li>
-              <li>{cofffeeDetail.title} ></li>
+              <li>홈 {'>'}</li>
+              <li>MENU {'>'}</li>
+              <li>음료 {'>'}</li>
+              <li>{cofffeeDetail.title} {'>'}</li>
               <li>{cofffeeDetail.titleName}</li>
             </ul>
           </section>
