@@ -6,10 +6,14 @@ import Detailyoungseo from "./pages/kimyoungseo/pages/Detail/Detail";
 import Listhaewon from "./pages/seulhaewon/List/List";
 import Loginhaewon from "./pages/seulhaewon/Login/Login";
 import Detailhaewon from "./pages/seulhaewon/Detail/Detail";
+import LoginSeongho from "./pages/seonghoson/pages/login/Login";
+import ListSeongho from "./pages/seonghoson/pages/list/List";
+import DetailSeongho from "./pages/seonghoson/pages/detail/Detail";
 import Main from "./pages/Main";
-import LoginSeongho from "../src/pages/seonghoson/pages/login/Login";
-import ListSeongho from "../src/pages/seonghoson/pages/list/List";
-import DetailSeongho from "../src/pages/seonghoson/pages/detail/Detail";
+
+import Logineuitaek from "./pages/leeeuitaek/Login/Login";
+import Listeuitaek from "./pages/leeeuitaek/List/List";
+import Detaileuitaek from "./pages/leeeuitaek/Detail/Detail";
 
 import "./styles/reset.scss";
 import "./styles/common.scss";
@@ -22,6 +26,9 @@ function App() {
         <Route path="/login-youngseo" element={<Loginyoungseo />} />
         <Route path="/list-youngseo" element={<Listyoungseo />} />
         <Route path="/detail-youngseo" element={<Detailyoungseo />} />
+        <Route path="/login-euitaek" element={<Logineuitaek />} />
+        <Route path="/list-euitaek" element={<Listeuitaek />} />
+        <Route path="/detail-euitaek" element={<Detaileuitaek />} />
 
         <Route path="/login-haewon" element={<Loginhaewon />} />
         <Route path="/list-haewon" element={<Listhaewon />} />

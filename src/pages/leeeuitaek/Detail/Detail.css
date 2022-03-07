@@ -1,0 +1,204 @@
+#container_detail {
+    max-width: 1100px;
+    height: 100vh;
+    margin: 0 auto; 
+    display: flex;
+    align-items: center;
+}
+
+#container_boxing_detail {
+    width: 100%;
+}
+
+.coffee_type {
+    margin-bottom: 40px;
+}
+
+.coffee_type h3 {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+
+.coffee_detail_container {    
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+}
+
+.coffee_detail_container .coffee_detail_img {
+    max-width: 400px;
+}
+
+.coffee_detail_container .coffee_detail_img img {
+    width: 100%;
+}
+
+.coffee_detail_container .coffee_detail {
+    width: 60%;    
+}
+
+.coffee_detail_container .coffee_detail h4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    letter-spacing: -2px;
+    padding-bottom: 18px;
+    margin-bottom: 30px;
+}
+
+.coffee_detail_container .coffee_detail i {
+    color: rgb(93, 93, 93);
+    font-size: 25px;
+    cursor : pointer;
+}
+
+.coffee_detail_container .coffee_detail i#small {    
+    font-size: 18px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_detail_allergy {
+    background-color: #f4f4f2;
+    margin-bottom: 30px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_detail_allergy p {
+    padding: 15px 11px;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+
+.coffee_detail_container .coffee_detail .product_info_content {
+    width: 100%;
+    display: flex;  
+    margin-bottom: 10px;  
+}
+
+.coffee_detail_container .coffee_detail .product_info_content ul {
+    width: 50%;
+    display: block;
+}
+
+.coffee_detail_container .coffee_detail .product_info_content ul:first-child {
+    border-right: 1px dotted black;
+}
+
+.coffee_detail_container .coffee_detail .product_info_content ul li {
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.coffee_detail_container .coffee_detail .product_info_content ul li dl {
+    display: flex;
+    justify-content: space-between;    
+}
+
+.coffee_detail_container .coffee_detail .product_info_content ul li dt {
+    font-size: 14px;    
+}
+
+.coffee_detail_container .coffee_detail .product_info_content ul li dd {
+    display: block;
+    font-size: 14px;
+    padding: 0;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review {
+    margin-bottom: 15px;
+    height: 280px;
+    overflow-x: auto;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review::-webkit-scrollbar { 
+    width: 6px;
+} 
+.coffee_detail_container .coffee_detail .coffee_review::-webkit-scrollbar-thumb {
+    background-color: rgb(73, 73, 73);
+    border-radius: 10px;
+} 
+.coffee_detail_container .coffee_detail .coffee_review::-webkit-scrollbar-track { 
+    background-color: rgb(223, 222, 222);
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,0.2);
+}
+
+.coffee_detail_container .coffee_detail .coffee_review ul {
+    display: block;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review ul h4 {
+    display: block;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(124, 124, 124);
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_container {
+    position: relative;
+    padding-left: 10px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_contentbox {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_name {
+    margin-left: 10px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_name h4 {
+    display: block;
+    font-size: 18px;
+    color: #262626;
+    border: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_content {    
+    margin-left: 10px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_content span {    
+    font-size: 14px;
+    color: #262626;
+    letter-spacing: -1px;
+    line-height: 18px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_del {
+    position: absolute;
+    right: 10px;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review .coffee_review_del i {
+    font-size: 20px;
+    color: #dd3333;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review_inputbox {
+    display: flex;
+    box-sizing: content-box;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review_inputbox .coffee_review_input_area {
+    width: 100%;
+}
+
+.coffee_detail_container .coffee_detail .coffee_review_inputbox input {
+    width: 95%;
+    height: 20px; 
+    font-size: 10px;       
+    border-bottom: 2px solid black;
+    border-radius: 8px;
+    padding-left: 8px;
+    background-color: #f4f4f2;    
+}
+
+.coffee_detail_container .coffee_detail .coffee_review_inputbox .coffee_review_inputbutton i {
+    font-size: 20px;
+    color: rgb(72 60 60);
+}
+
