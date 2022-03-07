@@ -57,8 +57,8 @@ function List() {
     })
       .then(res => res.json())
       .then(data => {
-        setColdbrewList(data['coldbrew']);
-        setBrudList(data['brudcoffee']);
+        setColdbrewList(data.coldbrew);
+        setBrudList(data.brudcoffee);
       });
   }, []);
 
@@ -79,8 +79,8 @@ function List() {
           {_brudList.map((coffee, index) => (
             <CoffeeCard coffee={coffee} key={index} />
           ))}
-          <div className="coffee"></div>
-          <div className="coffee"></div>
+          <div className="coffee"> </div>
+          <div className="coffee"> </div>
         </div>
       </section>
     </div>
