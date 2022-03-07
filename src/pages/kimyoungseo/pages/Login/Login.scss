@@ -30,7 +30,7 @@
     height: 250px;
     margin-bottom: 200px;
 
-    input {
+    .inputBox {
       @include flex-center;
       width: 350px;
       height: 50px;
@@ -60,9 +60,9 @@
         text-decoration: none;
         color: white;
       }
-    }
-    .loginBtn:disabled {
-      opacity: 0.5;
+      &:disabled {
+        opacity: 0.5;
+      }
     }
   }
 }
