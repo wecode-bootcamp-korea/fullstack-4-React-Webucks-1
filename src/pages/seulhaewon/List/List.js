@@ -8,9 +8,10 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 
 function Label(props) {
+  const { coffeeName } = props;
   return (
     <div className="coldbrew">
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;{props.name}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;{coffeeName}&nbsp;&nbsp;&nbsp;&nbsp;</p>
       <img src="/images/seulhaewon/logo_decaf.png" alt="logo" id="logo" />
       <p>&nbsp;&nbsp;디카페인 에스프레소 샷 추가 가능(일부 음료 제외)</p>
     </div>
