@@ -1,6 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router";
-import "./Header.scss";
+import React from 'react';
+import { useNavigate } from 'react-router';
+import './Header.scss';
 
 function Header() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Header() {
     <header className="header_main">
       <div
         className="header_logo_wrapper"
-        onClick={() => navigateClick("/list-seonghoson")}
+        onClick={() => navigateClick('/list-seonghoson')}
       >
         <h1>We bucks</h1>
       </div>
@@ -23,7 +23,7 @@ function Header() {
         <span>STORE</span>
         <span
           id="logout_button"
-          onClick={() => navigateClick("/login-seonghoson")}
+          onClick={() => navigateClick('/login-seonghoson')}
         >
           LOGOUT
         </span>

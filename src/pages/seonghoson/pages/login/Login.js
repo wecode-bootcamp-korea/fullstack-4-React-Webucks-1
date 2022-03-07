@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import "./Login.scss";
+import './Login.scss';
 
 function Login() {
   const navigate = useNavigate();
@@ -15,27 +15,27 @@ function Login() {
   useEffect(() => {
     if (isIdActive && isPwActive) {
       loginBtnRef.current.disabled = false;
-      loginBtnRef.current.style.background = "#61ADED";
-      loginBtnRef.current.style.cursor = "pointer";
+      loginBtnRef.current.style.background = '#61ADED';
+      loginBtnRef.current.style.cursor = 'pointer';
     } else {
       loginBtnRef.current.disabled = true;
-      loginBtnRef.current.style.background = "#add4ea";
-      loginBtnRef.current.style.cursor = "default";
+      loginBtnRef.current.style.background = '#add4ea';
+      loginBtnRef.current.style.cursor = 'default';
     }
   }, [isIdActive, isPwActive]);
 
   function idInputChange(e) {
     const { value } = e.target;
-    if (value.includes("@")) {
-      idInputRef.current.style.border = "1px solid green";
-      idInputRef.current.className = "active";
+    if (value.includes('@')) {
+      idInputRef.current.style.border = '1px solid green';
+      idInputRef.current.className = 'active';
       setIsIdActive(true);
     } else {
-      idInputRef.current.style.border = "1px solid #ccc";
-      idInputRef.current.className = "unactive";
+      idInputRef.current.style.border = '1px solid #ccc';
+      idInputRef.current.className = 'unactive';
       setIsIdActive(false);
     }
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       loginBtnClick();
     }
   }
@@ -45,31 +45,31 @@ function Login() {
     var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 
     if (reg.test(value)) {
-      pwInputRef.current.style.border = "1px solid green";
-      pwInputRef.current.className = "active";
+      pwInputRef.current.style.border = '1px solid green';
+      pwInputRef.current.className = 'active';
       setPwIdActive(true);
     } else {
-      pwInputRef.current.style.border = "1px solid #ccc";
-      pwInputRef.current.className = "unactive";
+      pwInputRef.current.style.border = '1px solid #ccc';
+      pwInputRef.current.className = 'unactive';
       setPwIdActive(false);
     }
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       loginBtnClick();
     }
   }
 
   function showBtnClick() {
-    if (pwInputRef.current.type === "password") {
-      pwInputRef.current.type = "text";
-      showBtnRef.current.innerText = "hide";
+    if (pwInputRef.current.type === 'password') {
+      pwInputRef.current.type = 'text';
+      showBtnRef.current.innerText = 'hide';
     } else {
-      pwInputRef.current.type = "password";
-      showBtnRef.current.innerText = "show";
+      pwInputRef.current.type = 'password';
+      showBtnRef.current.innerText = 'show';
     }
   }
 
   function loginInputKeyPress(e) {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       loginBtnClick();
     }
   }
@@ -77,7 +77,7 @@ function Login() {
   function loginBtnClick() {
     const username = idInputRef.current.value;
     if (isIdActive && isPwActive)
-      navigate("/list-seonghoson", { state: { username } });
+      navigate('/list-seonghoson', { state: { username } });
   }
 
   return (
