@@ -7,7 +7,12 @@ import Listhaewon from "./pages/seulhaewon/List/List";
 import Loginhaewon from "./pages/seulhaewon/Login/Login";
 import Detailhaewon from "./pages/seulhaewon/Detail/Detail";
 import Main from "./pages/Main";
+import LoginSeongho from "../src/pages/seonghoson/pages/login/Login";
+import ListSeongho from "../src/pages/seonghoson/pages/list/List";
+import DetailSeongho from "../src/pages/seonghoson/pages/detail/Detail";
+
 import "./styles/reset.scss";
+import "./styles/common.scss";
 
 function App() {
   return (
@@ -21,6 +26,9 @@ function App() {
         <Route path="/login-haewon" element={<Loginhaewon />} />
         <Route path="/list-haewon" element={<Listhaewon />} />
         <Route path="/detail-haewon" element={<Detailhaewon />} />
+        <Route path="login-seonghoson" element={<LoginSeongho />} />
+        <Route path="/list-seonghoson" element={<ListSeongho />} />
+        <Route path="/detail-seonghoson/:id" element={<DetailSeongho />} />
       </Routes>
     </BrowserRouter>
   );
