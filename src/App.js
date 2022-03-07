@@ -6,10 +6,11 @@ import Detailyoungseo from "./pages/kimyoungseo/pages/Detail/Detail";
 import Listhaewon from "./pages/seulhaewon/List/List";
 import Loginhaewon from "./pages/seulhaewon/Login/Login";
 import Detailhaewon from "./pages/seulhaewon/Detail/Detail";
+import LoginSeongho from "./pages/seonghoson/pages/login/Login";
+import ListSeongho from "./pages/seonghoson/pages/list/List";
+import DetailSeongho from "./pages/seonghoson/pages/detail/Detail";
 import Main from "./pages/Main";
-import Loginyoungseo from "./pages/kimyoungseo/pages/Login/Login";
-import Listyoungseo from "./pages/kimyoungseo/pages/List/List";
-import Detailyoungseo from "./pages/kimyoungseo/pages/Detail/Detail";
+
 import Logineuitaek from "./pages/leeeuitaek/Login/Login";
 import Listeuitaek from "./pages/leeeuitaek/List/List";
 import Detaileuitaek from "./pages/leeeuitaek/Detail/Detail";
