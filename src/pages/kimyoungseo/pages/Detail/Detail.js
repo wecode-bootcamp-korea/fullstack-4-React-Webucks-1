@@ -75,7 +75,9 @@ function Detail() {
               <li>홈 {'>'}</li>
               <li>MENU {'>'}</li>
               <li>음료 {'>'}</li>
-              <li>{cofffeeDetail.title} {'>'}</li>
+              <li>
+                {cofffeeDetail.title} {'>'}
+              </li>
               <li>{cofffeeDetail.titleName}</li>
             </ul>
           </section>
