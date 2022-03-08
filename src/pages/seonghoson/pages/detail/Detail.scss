@@ -26,13 +26,14 @@
 
 @media (min-width: 1200px) {
   .detail_main {
-    width: 1140px;
+    width: 967px;
   }
 }
 
 .detail_main {
   display: flex;
   margin: 200px auto 100px;
+  transition: 1s;
   svg {
     cursor: pointer;
   }

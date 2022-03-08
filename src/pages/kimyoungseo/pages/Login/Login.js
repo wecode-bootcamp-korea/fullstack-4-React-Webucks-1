@@ -25,7 +25,7 @@ function Login() {
   //엔터로 화면이동
   const keyInput = e => {
     if (e.key === 'Enter' && isActive === false) {
-      handleLogin();
+      handleLogin(); //서버 로그인 연결
     }
   };
 
@@ -98,11 +98,14 @@ function Login() {
       .then(response => response.json())
       .then(result => {
         console.log(result);
+        //통신오류
         if (result.message === 'client input invalid') {
           alert(
             ' 아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. \n 입력하신 내용을 다시 확인해주세요. '
           );
-        } else {
+        }
+        //성공시 url이동
+        else {
           goToList();
         }
       });

@@ -1,4 +1,4 @@
-import "./TopNav.scss";
+import './TopNav.scss';
 
 function TopNav() {
   return (

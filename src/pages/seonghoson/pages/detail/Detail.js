@@ -1,27 +1,27 @@
-import React, { useRef, useState } from "react";
-import { useLocation } from "react-router";
-import Header from "../../components/header/Header";
-import Review from "../../components/review/Review";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
+import React, { useRef, useState } from 'react';
+import { useLocation } from 'react-router';
+import Header from '../../components/header/Header';
+import Review from '../../components/review/Review';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
-import "./Detail.scss";
+import './Detail.scss';
 
 function Detail() {
   const location = useLocation();
   const { item } = location.state;
-  let likeData = JSON.parse(localStorage.getItem("likes"));
+  let likeData = JSON.parse(localStorage.getItem('likes'));
   let reviewData = JSON.parse(localStorage.getItem(item.id));
   const [isLike, setIsLike] = useState(likeData.includes(item.id));
   const [reviewList, setReviewList] = useState(!!reviewData ? reviewData : []);
   const reviewInputRef = useRef();
   const allergy =
-    item.nourishment.allergy.length > 0 ? item.nourishment.allergy : "없음";
+    item.nourishment.allergy.length > 0 ? item.nourishment.allergy : '없음';
 
   function reviewInputKeyPress(e) {
     const { value } = e.target;
     const randomId = Math.floor(Math.random() * 1000000000);
     let reviewData = JSON.parse(localStorage.getItem(item.id));
-    if (e.key === "Enter" && value.trim() !== "") {
+    if (e.key === 'Enter' && value.trim() !== '') {
       if (!!reviewData) {
         reviewData.push({
           id: randomId,
@@ -39,21 +39,21 @@ function Detail() {
 
         setReviewList([{ id: randomId, comment: value, isLike: false }]);
       }
-      reviewInputRef.current.value = "";
+      reviewInputRef.current.value = '';
     }
   }
 
   function heartBtnClick(bool) {
-    let likeData = JSON.parse(localStorage.getItem("likes"));
+    let likeData = JSON.parse(localStorage.getItem('likes'));
     if (likeData.includes(item.id)) {
-      likeData = likeData.filter((id) => {
+      likeData = likeData.filter(id => {
         if (id !== item.id) return id;
         else return null;
       });
     } else {
       likeData.push(item.id);
     }
-    localStorage.setItem("likes", JSON.stringify(likeData));
+    localStorage.setItem('likes', JSON.stringify(likeData));
     setIsLike(bool);
   }
 
