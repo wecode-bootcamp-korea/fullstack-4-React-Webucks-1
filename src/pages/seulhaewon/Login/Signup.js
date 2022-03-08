@@ -42,7 +42,6 @@ function Signup() {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         alert(result.message);
         if (result.userId) {
           flag ? navigate('/login-haewon') : goToDefault();

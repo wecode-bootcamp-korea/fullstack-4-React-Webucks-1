@@ -1,5 +1,5 @@
 import './Detail.scss';
-import TopNav from '../TopNav';
+import TopNav from '../common/TopNav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as FH } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as FHS } from '@fortawesome/free-solid-svg-icons';
