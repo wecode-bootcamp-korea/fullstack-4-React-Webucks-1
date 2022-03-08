@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import './Login.scss';
 
 function Login() {
   const navigate = useNavigate();
   const [isIdActive, setIsIdActive] = useState(false);
-  const [isPwActive, setPwIdActive] = useState(false);
+  const [isPwActive, setIsPwActive] = useState(false);
   const idInputRef = useRef(null);
   const pwInputRef = useRef(null);
   const loginBtnRef = useRef(null);
@@ -26,7 +27,8 @@ function Login() {
 
   function idInputChange(e) {
     const { value } = e.target;
-    if (value.includes('@')) {
+    const reg = /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    if (reg.test(value)) {
       idInputRef.current.style.border = '1px solid green';
       idInputRef.current.className = 'active';
       setIsIdActive(true);
@@ -35,26 +37,20 @@ function Login() {
       idInputRef.current.className = 'unactive';
       setIsIdActive(false);
     }
-    if (e.key === 'Enter') {
-      loginBtnClick();
-    }
   }
 
   function pwInputChange(e) {
     const { value } = e.target;
-    var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-
+    const reg =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     if (reg.test(value)) {
       pwInputRef.current.style.border = '1px solid green';
       pwInputRef.current.className = 'active';
-      setPwIdActive(true);
+      setIsPwActive(true);
     } else {
       pwInputRef.current.style.border = '1px solid #ccc';
       pwInputRef.current.className = 'unactive';
-      setPwIdActive(false);
-    }
-    if (e.key === 'Enter') {
-      loginBtnClick();
+      setIsPwActive(false);
     }
   }
 
@@ -74,10 +70,30 @@ function Login() {
     }
   }
 
+  // id : seonghoson@gmail.com
+  // pw : !Q@W#E$R5t6y7u8i
   function loginBtnClick() {
-    const username = idInputRef.current.value;
-    if (isIdActive && isPwActive)
-      navigate('/list-seonghoson', { state: { username } });
+    if (isIdActive && isPwActive) {
+      const username = idInputRef.current.value;
+      const userpw = pwInputRef.current.value;
+      const params = JSON.stringify({
+        email: username,
+        password: userpw,
+      });
+      const headers = {
+        'Content-Type': 'application/json',
+        Accept: '*/*',
+      };
+
+      axios.post('/users/login', params, { headers }).then(response => {
+        if (response.statusText === 'OK') {
+          localStorage.setItem('webucks_token', response.data.token);
+          navigate('/list-seonghoson', { state: { username } });
+        } else {
+          alert('아이디 비밀번호를 재확인 해주세요');
+        }
+      });
+    }
   }
 
   return (
@@ -121,7 +137,7 @@ function Login() {
           </button>
         </div>
         <footer>
-          <Link to="/notfound">비밀번호를 잊으셨나요?</Link>
+          <Link to="/signup-seonghoson">회원가입 하러가기</Link>
         </footer>
       </article>
     </section>

@@ -9,6 +9,8 @@ import Detailhaewon from './pages/seulhaewon/Detail/Detail';
 import LoginSeongho from './pages/seonghoson/pages/login/Login';
 import ListSeongho from './pages/seonghoson/pages/list/List';
 import DetailSeongho from './pages/seonghoson/pages/detail/Detail';
+import SignupSeongho from './pages/seonghoson/pages/signup/Signup';
+
 import Main from './pages/Main';
 
 import Logineuitaek from './pages/leeeuitaek/Login/Login';
@@ -33,6 +35,7 @@ function App() {
         <Route path="/list-haewon" element={<Listhaewon />} />
         <Route path="/detail-haewon" element={<Detailhaewon />} />
         <Route path="login-seonghoson" element={<LoginSeongho />} />
+        <Route path="signup-seonghoson" element={<SignupSeongho />} />
         <Route path="/list-seonghoson" element={<ListSeongho />} />
         <Route path="/detail-seonghoson/:id" element={<DetailSeongho />} />
       </Routes>
