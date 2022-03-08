@@ -69,7 +69,7 @@ function Login() {
 
   const idInputBox = useRef();
   const pwInputBox = useRef();
-
+  //inputbox 초기화하고 마우스커서 idbox로 옮기기
   function clearInput() {
     idInputBox.current.value = '';
     pwInputBox.current.value = '';
