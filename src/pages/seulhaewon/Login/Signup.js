@@ -1,21 +1,15 @@
-import './Login.scss';
-import '../../../styles/reset.scss';
-import { useNavigate, Link } from 'react-router-dom';
+import React from 'react';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
+import './Login.scss';
+import { useNavigate, Link } from 'react-router-dom';
 
-function Login() {
+function Signup() {
   const navigate = useNavigate();
   const idReg = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
   const pwdReg =
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
   const [inputid, setId] = useState('');
   const [inputPwd, setPwd] = useState('');
-  const [pwdStatus, setPwdStatus] = useState({
-    icon: faEyeSlash,
-    type: 'password',
-  });
 
   const HandleIdInput = event => {
     setId(event.target.value);
@@ -34,9 +28,9 @@ function Login() {
       return inputPwd.match(pwdReg) ? trueValue : falseValue;
     else return false;
   };
-  const loginhandle = () => {
+  const signupHandle = () => {
     let flag = inputid.match(idReg) && inputPwd.match(pwdReg) ? true : false;
-    fetch('/users/login', {
+    fetch('/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,20 +42,15 @@ function Login() {
     })
       .then(res => res.json())
       .then(result => {
+        console.log(result);
         alert(result.message);
-        if (result.token) {
-          flag ? navigate('/list-haewon') : goToDefault();
+        if (result.userId) {
+          flag ? navigate('/login-haewon') : goToDefault();
         }
       });
   };
   const goToDefault = () => {
     return true;
-  };
-  const changeEye = () => {
-    setPwdStatus({
-      icon: pwdStatus.icon === faEyeSlash ? faEye : faEyeSlash,
-      type: pwdStatus.type === 'password' ? 'text' : 'password',
-    });
   };
   return (
     <div className="login_shw">
@@ -69,10 +58,10 @@ function Login() {
         <div
           id="login_box"
           onKeyPress={event => {
-            event.key === 'Enter' ? loginhandle() : goToDefault();
+            event.key === 'Enter' ? signupHandle() : goToDefault();
           }}
         >
-          <div className="webucks">webucks</div>
+          <div className="signup">회원가입</div>
           <input
             id="id"
             className={BorderChange('id', 'idBorderGreen', 'idBorderDefault')}
@@ -88,29 +77,22 @@ function Login() {
                 'pwdBorderGreen',
                 'pwdBorderDefault'
               )}
-              type={pwdStatus.type}
+              type="password"
               placeholder="비밀번호"
               onChange={HandlePwdInput}
-            />
-            <FontAwesomeIcon
-              icon={pwdStatus.icon}
-              className="fa-eye-slash"
-              onClick={changeEye}
             />
           </div>
           <button
             className={ButtonChange('activeBtn', 'inactiveBtn')}
-            onClick={loginhandle}
+            onClick={signupHandle}
             disabled={ButtonChange(false, true)}
           >
-            로그인
+            회원가입
           </button>
-          <Link to>비밀번호를 잊으셨나요?</Link>
-          <Link to={'/signup-haewon'}>회원가입</Link>
         </div>
       </section>
     </div>
   );
 }
 
-export default Login;
+export default Signup;
