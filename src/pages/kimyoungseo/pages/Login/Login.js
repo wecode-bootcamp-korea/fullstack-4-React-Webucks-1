@@ -1,7 +1,7 @@
 import './Login.scss';
 import '../../../../styles/reset.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 function Login() {
   const navigte = useNavigate();
@@ -67,6 +67,18 @@ function Login() {
       : (setiClassName('fa-solid fa-eye-slash'), setPwd('password'));
   };
 
+  const idInputBox = useRef();
+  const pwInputBox = useRef();
+
+  function clearInput() {
+    idInputBox.current.value = '';
+    pwInputBox.current.value = '';
+    setIsActive(true);
+    setidBoxColor('#e3e3e3');
+    setpwdBoxColor('#e3e3e3');
+    idInputBox.current.focus();
+  }
+
   // 서버 연결 회원가입
   const handleSignUp = () => {
     fetch('/users/signup', {
@@ -80,7 +92,15 @@ function Login() {
       }),
     })
       .then(response => response.json())
-      .then(result => console.log(result));
+      .then(result => {
+        if (result.message === 'EXISTING_USER') {
+          alert('이미 존재하는 아이디 입니다.');
+          clearInput();
+        } else {
+          alert('축하합니다! 회원가입 성공!!!');
+          clearInput();
+        }
+      });
   };
 
   // 서버 연결 로그인
@@ -103,6 +123,7 @@ function Login() {
           alert(
             ' 아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. \n 입력하신 내용을 다시 확인해주세요. '
           );
+          clearInput();
         }
         //성공시 url이동
         else {
@@ -124,6 +145,7 @@ function Login() {
                 placeholder="전화번호, 사용자 이름 또는 이메일"
                 onKeyPress={keyInput}
                 onChange={handleIdInput}
+                ref={idInputBox}
                 onKeyUp={isPassedLogin}
                 style={{ borderColor: idBoxColor }}
               />
@@ -134,6 +156,7 @@ function Login() {
                 placeholder="비밀번호"
                 onKeyPress={keyInput}
                 onChange={handlePwInput}
+                ref={pwInputBox}
                 onKeyUp={isPassedLogin}
                 style={{ borderColor: pwBoxColor }}
               />
