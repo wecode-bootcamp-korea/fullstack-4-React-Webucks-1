@@ -9,29 +9,20 @@ function _Signup() {
   const [idText, setIdText] = useState('');
   const [pwText, setPwText] = useState('');
   const [view, setView] = useState('id');
-  const [isIdInputActive, setIsIdInputActive] = useState(false);
-  const [isPwInputActive, setIsPwInputActive] = useState(false);
+  const isIdInputActive =
+    /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/.test(idText);
+  const isPwInputActive =
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+      pwText
+    );
 
   function handleIdChage(e) {
     const { value } = e.target;
-    const reg = /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    if (reg.test(value)) {
-      setIsIdInputActive(true);
-    } else {
-      setIsIdInputActive(false);
-    }
     setIdText(value);
   }
 
   function handlePwChange(e) {
     const { value } = e.target;
-    const reg =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    if (reg.test(value)) {
-      setIsPwInputActive(true);
-    } else {
-      setIsPwInputActive(false);
-    }
     setPwText(value);
   }
 
@@ -54,7 +45,6 @@ function _Signup() {
   function handleBackBtn() {
     setView('id');
     setPwText('');
-    setIsPwInputActive(false);
   }
 
   function handleCreateBtn() {
@@ -73,6 +63,7 @@ function _Signup() {
       }
     });
   }
+
   return (
     <main className="signup_seonghoson">
       <section className="signup_main">
@@ -95,6 +86,7 @@ function _Signup() {
             </div>
             <div className="container_bottom">
               <button
+                type="button"
                 className={
                   isIdInputActive ? 'active_id_btn' : 'unactive_id_btn'
                 }
@@ -125,6 +117,7 @@ function _Signup() {
             </div>
             <div className="container_bottom">
               <button
+                type="button"
                 className={
                   isPwInputActive ? 'active_pw_btn' : 'unactive_pw_btn'
                 }
