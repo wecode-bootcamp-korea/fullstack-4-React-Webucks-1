@@ -105,8 +105,10 @@ function Login() {
           >
             로그인
           </button>
-          <Link to>비밀번호를 잊으셨나요?</Link>
-          <Link to={'/signup-haewon'}>회원가입</Link>
+          <div className="loginOption">
+            <Link to>비밀번호를 잊으셨나요?</Link> /&nbsp;
+            <Link to="/signup-haewon">회원가입</Link>
+          </div>
         </div>
       </section>
     </div>
