@@ -44,8 +44,12 @@
     background-color: #add4ea;
     color: #ffff;
   }
-  .active:focus {
-    outline-color: green;
+  .active_btn {
+    background-color: #61aded;
+    cursor: pointer;
+  }
+  .active_input {
+    border: 1px solid green;
   }
   .login_password_wrap {
     position: relative;
