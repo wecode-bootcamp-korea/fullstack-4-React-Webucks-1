@@ -65,12 +65,11 @@ function Review() {
         <button onClick={makeReviewList}>등록</button>
       </div>
       <div>
-        {reviewList.map((_review, index) => (
+        {reviewList.map(_review => (
           <ReviewBox
             review={_review}
-            key={index}
+            key={_review.key}
             removeReview={removeReview}
-            reviewList={reviewList}
           />
         ))}
       </div>
@@ -78,22 +77,16 @@ function Review() {
   );
 }
 
-const ReviewBox = React.memo(function ReviewBox({
-  review,
-  removeReview,
-  reviewList,
-}) {
-  const [rvList, setReviewList] = useState();
-  const listHeartChange = _review => {
-    setReviewList(
-      reviewList.map(rv => {
-        if (rv.key === _review.key) {
-          rv.heart = _review.heart === FH ? FHS : FH;
-          rv.heartColor = _review.heartColor === '#CFCFCF' ? 'red' : '#CFCFCF';
-        }
-        return rv;
-      })
-    );
+const ReviewBox = React.memo(function ReviewBox({ review, removeReview }) {
+  const [Heart, setHearts] = useState({
+    Heart: FH,
+    HeartColor: '#CFCFCF',
+  });
+  const listHeartChange = event => {
+    setHearts({
+      Heart: Heart.Heart === FH ? FHS : FH,
+      HeartColor: Heart.HeartColor === '#CFCFCF' ? 'red' : '#CFCFCF',
+    });
   };
   return (
     <div className="reviewBox">
@@ -102,9 +95,9 @@ const ReviewBox = React.memo(function ReviewBox({
       </div>
       <div>
         <FontAwesomeIcon
-          icon={review.heart}
+          icon={Heart.Heart}
           onClick={() => listHeartChange(review)}
-          color={review.heartColor}
+          color={Heart.HeartColor}
         />
         <FontAwesomeIcon
           icon={faX}
