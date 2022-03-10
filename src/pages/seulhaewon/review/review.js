@@ -38,6 +38,10 @@ function Review() {
     };
     setReviewList(reviewList.concat(Review));
     nextId.current += 1;
+    setReview({
+      id: '',
+      comment: '',
+    });
   };
   return (
     <div className="review_shw">
@@ -47,22 +51,25 @@ function Review() {
           type="text"
           placeholder="아이디"
           className="review_id"
+          value={review.id}
+          onChange={addReview}
         />
         <input
           name="comment"
           type="text"
           placeholder="리뷰를 입력해 주세요"
           className="review"
+          value={review.comment}
+          onChange={addReview}
         />
         <button onClick={makeReviewList}>등록</button>
       </div>
       <div>
-        {reviewList.map((_review, index) => (
+        {reviewList.map(_review => (
           <ReviewBox
             review={_review}
-            key={index}
+            key={_review.key}
             removeReview={removeReview}
-            rvList={reviewList}
           />
         ))}
       </div>
@@ -70,22 +77,16 @@ function Review() {
   );
 }
 
-const ReviewBox = React.memo(function ReviewBox({
-  review,
-  removeReview,
-  rvList,
-}) {
-  const [reviewList, setReviewList] = useState();
-  const listHeartChange = _review => {
-    setReviewList(
-      rvList.map(rv => {
-        if (rv.key === _review.key) {
-          rv.heart = _review.heart === FH ? FHS : FH;
-          rv.heartColor = _review.heartColor === '#CFCFCF' ? 'red' : '#CFCFCF';
-        }
-        return rv;
-      })
-    );
+const ReviewBox = React.memo(function ReviewBox({ review, removeReview }) {
+  const [Heart, setHearts] = useState({
+    Heart: FH,
+    HeartColor: '#CFCFCF',
+  });
+  const listHeartChange = event => {
+    setHearts({
+      Heart: Heart.Heart === FH ? FHS : FH,
+      HeartColor: Heart.HeartColor === '#CFCFCF' ? 'red' : '#CFCFCF',
+    });
   };
   return (
     <div className="reviewBox">
@@ -94,9 +95,9 @@ const ReviewBox = React.memo(function ReviewBox({
       </div>
       <div>
         <FontAwesomeIcon
-          icon={review.heart}
+          icon={Heart.Heart}
           onClick={() => listHeartChange(review)}
-          color={review.heartColor}
+          color={Heart.HeartColor}
         />
         <FontAwesomeIcon
           icon={faX}

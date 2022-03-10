@@ -5,6 +5,7 @@ import Listyoungseo from './pages/kimyoungseo/pages/List/List';
 import Detailyoungseo from './pages/kimyoungseo/pages/Detail/Detail';
 import Listhaewon from './pages/seulhaewon/List/List';
 import Loginhaewon from './pages/seulhaewon/Login/Login';
+import Signuphaewon from './pages/seulhaewon/Login/Signup';
 import Detailhaewon from './pages/seulhaewon/Detail/Detail';
 import LoginSeongho from './pages/seonghoson/pages/login/Login';
 import ListSeongho from './pages/seonghoson/pages/list/List';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/list-euitaek" element={<Listeuitaek />} />
         <Route path="/detail-euitaek" element={<Detaileuitaek />} />
         <Route path="/login-haewon" element={<Loginhaewon />} />
+        <Route path="/signup-haewon" element={<Signuphaewon />} />
         <Route path="/list-haewon" element={<Listhaewon />} />
         <Route path="/detail-haewon" element={<Detailhaewon />} />
         <Route path="login-seonghoson" element={<LoginSeongho />} />
