@@ -28,11 +28,11 @@ function Detail() {
     }
   };
   //detail 상단 하트 클릭시 색 변환
-  const [iClass, setIClass] = useState('fa-regular fa-heart');
+  const [isLike, setIsLike] = useState(false);
+
   const changeButton = () => {
-    iClass === 'fa-regular fa-heart'
-      ? setIClass('fa-solid fa-heart')
-      : setIClass('fa-regular fa-heart');
+    setIsLike(prev => !prev); //자신의 상태를  쓸 때는 prev를 사용하는게 좋다
+    // prev는 자신의 전 상태이다.
   };
   //댓글 삭제
   const parentsId = e => {
@@ -92,7 +92,13 @@ function Detail() {
                   <div className="englishTitle">{cofffeeDetail.name}</div>
                 </div>
                 <div className="mainHeart">
-                  <i className={iClass} onClick={changeButton}></i>
+                  <i
+                    style={{ cursor: 'pointer' }}
+                    className={
+                      isLike ? 'fa-solid fa-heart' : 'fa-regular fa-heart'
+                    }
+                    onClick={changeButton}
+                  ></i>
                 </div>
               </div>
               <p className="product_info">{cofffeeDetail.nameContent}</p>

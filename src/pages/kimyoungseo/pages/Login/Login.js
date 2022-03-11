@@ -1,7 +1,7 @@
 import './Login.scss';
 import '../../../../styles/reset.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function Login() {
   const navigte = useNavigate();
@@ -28,6 +28,10 @@ function Login() {
       handleLogin(); //서버 로그인 연결
     }
   };
+
+  useEffect(() => {
+    isPassedLogin();
+  }, [id, pw]);
 
   const isPassedLogin = () => (
     CheckEmail(id) && checkPW(pw)
@@ -146,7 +150,6 @@ function Login() {
                 onKeyPress={keyInput}
                 onChange={handleIdInput}
                 ref={idInputBox}
-                onKeyUp={isPassedLogin}
                 style={{ borderColor: idBoxColor }}
               />
               <input
@@ -157,7 +160,6 @@ function Login() {
                 onKeyPress={keyInput}
                 onChange={handlePwInput}
                 ref={pwInputBox}
-                onKeyUp={isPassedLogin}
                 style={{ borderColor: pwBoxColor }}
               />
               <i className={iClassName} onClick={eyeChange}></i>
