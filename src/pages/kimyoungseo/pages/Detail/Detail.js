@@ -10,6 +10,7 @@ let arrayKey = 0;
 function Detail() {
   const [inputText, setInputText] = useState({});
   const [array, setArray] = useState([]);
+
   //배열에 넣어주기
   const addComment = item => {
     const items = {
@@ -19,6 +20,7 @@ function Detail() {
     arrayKey += 1;
     setArray(array.concat([items]));
   };
+
   //엔터 누르면 댓글
   const pressEnter = e => {
     if (e.key === 'Enter') {
@@ -27,6 +29,7 @@ function Detail() {
       e.target.value = '';
     }
   };
+
   //detail 상단 하트 클릭시 색 변환
   const [isLike, setIsLike] = useState(false);
 
@@ -34,14 +37,12 @@ function Detail() {
     setIsLike(prev => !prev); //자신의 상태를  쓸 때는 prev를 사용하는게 좋다
     // prev는 자신의 전 상태이다.
   };
+
   //댓글 삭제
-  const parentsId = e => {
-    //배열 비교 하면서 값이 다르면 삭제  [값이 같으면 다 삭제되는 오류 발생]
-    // const value = e.target.parentNode.childNodes[1].innerText;
-    //key 값으로 구현
-    const targetId = e.target.parentNode.id;
-    setArray(array.filter(array => array.id !== Number(targetId)));
+  const deletcomment = id => {
+    setArray(array.filter(array => array.id !== id));
   };
+
   //디테일 페이지 데이터 바꾸기
   const params = useParams();
   const [cofffeeDetail, setCoffeeDetail] = useState({
@@ -72,9 +73,9 @@ function Detail() {
           <section className="mainText">
             <div className="title">{cofffeeDetail.title}</div>
             <ul className="link">
-              <li>홈 {'>'}</li>
-              <li>MENU {'>'}</li>
-              <li>음료 {'>'}</li>
+              <li>홈{'>'}</li>
+              <li>MENU{'>'}</li>
+              <li>음료{'>'}</li>
               <li>
                 {cofffeeDetail.title} {'>'}
               </li>
@@ -153,7 +154,7 @@ function Detail() {
                           key={comment.id}
                           name={comment.item}
                           id={comment.id}
-                          parentsId={parentsId}
+                          deletcomment={deletcomment}
                         />
                       );
                     })}
