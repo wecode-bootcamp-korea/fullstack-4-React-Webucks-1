@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "imgUrl": "/images/kimyoungseo/andrew-valdivia-mMI5sdLFoHM-unsplash (2).jpg",
+  "imgUrl": "http://localhost:3000/images/kimyoungseo/andrew-valdivia-mMI5sdLFoHM-unsplash.jpg",
   "title": "콜드 브루",
   "titleName": "돌체 콜드 브루",
   "name": "Dolce Cold Brew",

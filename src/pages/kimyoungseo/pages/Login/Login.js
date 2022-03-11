@@ -1,7 +1,7 @@
 import './Login.scss';
 import '../../../../styles/reset.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function Login() {
   const navigte = useNavigate();
@@ -25,9 +25,13 @@ function Login() {
   //엔터로 화면이동
   const keyInput = e => {
     if (e.key === 'Enter' && isActive === false) {
-      goToList();
+      handleLogin(); //서버 로그인 연결
     }
   };
+
+  useEffect(() => {
+    isPassedLogin();
+  }, [id, pw]);
 
   const isPassedLogin = () => (
     CheckEmail(id) && checkPW(pw)
@@ -66,6 +70,71 @@ function Login() {
       ? (setiClassName('fa-solid fa-eye'), setPwd('text'))
       : (setiClassName('fa-solid fa-eye-slash'), setPwd('password'));
   };
+
+  const idInputBox = useRef();
+  const pwInputBox = useRef();
+  //inputbox 초기화하고 마우스커서 idbox로 옮기기
+  function clearInput() {
+    idInputBox.current.value = '';
+    pwInputBox.current.value = '';
+    setIsActive(true);
+    setidBoxColor('#e3e3e3');
+    setpwdBoxColor('#e3e3e3');
+    idInputBox.current.focus();
+  }
+
+  // 서버 연결 회원가입
+  const handleSignUp = () => {
+    fetch('/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'EXISTING_USER') {
+          alert('이미 존재하는 아이디 입니다.');
+          clearInput();
+        } else {
+          alert('축하합니다! 회원가입 성공!!!');
+          clearInput();
+        }
+      });
+  };
+
+  // 서버 연결 로그인
+  const handleLogin = () => {
+    fetch('/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        //통신오류
+        if (result.message === 'client input invalid') {
+          alert(
+            ' 아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. \n 입력하신 내용을 다시 확인해주세요. '
+          );
+          clearInput();
+        }
+        //성공시 url이동
+        else {
+          goToList();
+        }
+      });
+  };
   return (
     <>
       <div className="Total">
@@ -80,7 +149,7 @@ function Login() {
                 placeholder="전화번호, 사용자 이름 또는 이메일"
                 onKeyPress={keyInput}
                 onChange={handleIdInput}
-                onKeyUp={isPassedLogin}
+                ref={idInputBox}
                 style={{ borderColor: idBoxColor }}
               />
               <input
@@ -90,7 +159,7 @@ function Login() {
                 placeholder="비밀번호"
                 onKeyPress={keyInput}
                 onChange={handlePwInput}
-                onKeyUp={isPassedLogin}
+                ref={pwInputBox}
                 style={{ borderColor: pwBoxColor }}
               />
               <i className={iClassName} onClick={eyeChange}></i>
@@ -98,11 +167,19 @@ function Login() {
                 style={{ cursor: cursor }}
                 className="loginBtn"
                 disabled={isActive}
-                onClick={goToList}
+                onClick={handleLogin}
               >
                 로그인
               </button>
             </div>
+            <button
+              style={{ cursor: cursor }}
+              className="loginBtn"
+              disabled={isActive}
+              onClick={handleSignUp}
+            >
+              회원가입
+            </button>
           </div>
           <div>비밀번호를 잊으셨나요?</div>
         </div>

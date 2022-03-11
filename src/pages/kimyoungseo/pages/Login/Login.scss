@@ -21,7 +21,7 @@
 
   .mainTitle {
     padding-bottom: 20px;
-    font-family: "Dancing Script", cursive;
+    font-family: 'Dancing Script', cursive;
     font-size: 70px;
   }
 
@@ -43,7 +43,7 @@
     }
     .fa-solid {
       position: absolute;
-      top: 118px;
+      top: 110px;
       right: 30px;
       cursor: pointer;
     }
@@ -55,6 +55,7 @@
       color: white;
       background-color: #61aded;
       border: 0px solid black;
+      margin-bottom: 70px;
       a {
         display: block;
         text-decoration: none;
