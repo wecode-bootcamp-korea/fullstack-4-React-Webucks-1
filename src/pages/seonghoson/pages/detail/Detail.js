@@ -79,7 +79,7 @@ function Detail() {
               <BsHeart
                 onClick={() => heartBtnClick(true)}
                 className="icon icon_heart"
-                color="white"
+                color="black"
               />
             )}
           </header>

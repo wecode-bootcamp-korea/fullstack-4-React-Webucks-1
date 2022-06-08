@@ -9,6 +9,14 @@ if (!localStorage.getItem('likes')) {
   localStorage.setItem('likes', JSON.stringify([]));
 }
 
+function TokenCheck() {
+  const token = localStorage.getItem('webucks_token');
+  if (token) {
+    return <main>Not Found 404</main>;
+  } else {
+    return <List />;
+  }
+}
 function List() {
   const location = useLocation();
   const [data, setData] = useState([]);
@@ -21,7 +29,7 @@ function List() {
           .then(data => {
             resolve({ type: '콜드 브루', data });
           });
-      }, 2000);
+      }, 150000);
     });
 
     let brood = new Promise((resolve, reject) => {
@@ -76,4 +84,4 @@ function List() {
   );
 }
 
-export default List;
+export default TokenCheck;
